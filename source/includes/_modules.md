@@ -99,7 +99,12 @@ Use this endpoint to receive a list of available modules.
 ```
 
 ## Enable Module
-This endpoint shoudl be used to enable a module using it's identifier. You'll replace `{identifier}` with the module's identifier you want to enable. Performing this will not execute the module migration if they are needed. By accessing NexoPOS, the migration will be performed.
+This endpoint shoudl be used to enable a module using it's identifier. You'll replace `{identifier}` with the module's identifier you want to enable. 
+
+<aside class="notice">
+Performing this will not execute the module migration if they are needed. By accessing NexoPOS, the migration will be performed.
+</aside>
+
 
 <div class="endpoint">
     <div>
@@ -183,7 +188,13 @@ This endpoint shoudl be used to enable a module using it's identifier. You'll re
 
 ## Disable Module
 
-This endpoint is used to disable a module using it's identifier. You'll replace `{identifier}` by the module's identifer you want to disable. Note that this method can't be used as way around to disable a module in case you're not able to access the dashboard. Please refer to [this guide](https://my.nexopos.com/en/documentation/troubleshooting/how-to-disable-a-module-without-dashboard-access-on-nexopos-4-x) to disable a module when you're locked out of the dashboard.
+This endpoint is used to disable a module using it's identifier. You'll replace `{identifier}` by the module's identifer you want to disable. 
+
+<aside class="notice">
+Note that this method can't be used as way around to disable a module in case you're not able to access the dashboard.
+</aside>
+
+Please refer to [this guide](https://my.nexopos.com/en/documentation/troubleshooting/how-to-disable-a-module-without-dashboard-access-on-nexopos-4-x) to disable a module when you're locked out of the dashboard.
 
 <div class="endpoint">
     <div>
@@ -275,3 +286,52 @@ This endpoint is used to disable a module using it's identifier. You'll replace 
 }
 ```
 
+## Remove Module
+
+This endpoint will remove the module from NexoPOS using the provided identifier. This will also delete all tables that might have been created by the module. You'll replace `{identifier}` with the module's identifier.
+
+<div class="endpoint">
+    <div>
+        <div class="method delete">delete</div>
+        <div class="path">api/modules/{identifier}/delete</div>
+    </div>
+</div>
+
+> Response
+
+```json
+{
+    "status": "[success|error]",
+    "message": "[string]",
+    "code": "[string]",
+    "module": "{}"
+}
+```
+
+## Upload Module
+
+Use this endpoint to upload a module as a zip file. This endpoint will perform install and update if necessary.
+
+<div class="endpoint">
+    <div>
+        <div class="method post">post</div>
+        <div class="path">api/modules</div>
+    </div>
+</div>
+
+> Request
+
+```json
+{
+    "module": "[zip binary]"
+}
+```
+
+> Response
+
+```json
+{
+    "status": "[error|success]",
+    "message": "[string]"
+}
+```
