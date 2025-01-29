@@ -385,6 +385,9 @@
                   <li>
                     <a href="#list-modules" class="toc-h2 toc-link" data-title="List Modules">List Modules</a>
                   </li>
+                  <li>
+                    <a href="#disable-module" class="toc-h2 toc-link" data-title="Disable Module">Disable Module</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -1402,6 +1405,97 @@ The generated token will allow any app using it to behave as the user who genera
   </span><span class="nl">"total_enabled"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nl">"total_disabled"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"total_invalid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='disable-module'>Disable Module</h2>
+<p>This endpoint is used to disable a module using it&#39;s identifier. You&#39;ll replace <code>{identifier}</code> by the module&#39;s identifer you want to disable. Note that this method can&#39;t be used as way around to disable a module in case you&#39;re not able to access the dashboard. Please refer to <a href="https://my.nexopos.com/en/documentation/troubleshooting/how-to-disable-a-module-without-dashboard-access-on-nexopos-4-x">this guide</a> to disable a module when you&#39;re locked out of the dashboard.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method put">put</div>
+        <div class="path">api/modules/{identifier}/disable</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Response </p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"module_disabled"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Module has been disabled."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"module"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"namespace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NsGastro"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blair Jersyer"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gastro - Restaurant Extension"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gastro provides a restaurant features on top of NexoPOS to ease restaurant management."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"core"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"min-version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.2.6"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"max-version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.3.0"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"recommends"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"dependency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nexo Print Adapter"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"requires"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">".gitignore"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"NsGastroModule.php"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"README.md"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"commands.txt"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"config.xml"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index.php"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"package-lock.json"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"package.json"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phpunit.ci.xml"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phpunit.xml"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phpunit.xml.bak"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"postcss.config.cjs"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tailwind.config.cjs"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"todo"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tsconfig.json"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vite.config.js"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"api-file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/var/www/html/default/modules/NsGastro/Routes/api.php"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"composer-installed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"controllers-path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/var/www/html/default/modules/NsGastro/Http/Controllers"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"controllers-relativePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NsGastro/Http/Controllers"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"has-languages"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lang-relativePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"modules/NsGastro/Lang"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"index-file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/var/www/html/default/modules/NsGastro/NsGastroModule.php"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/var/www/html/default/modules/NsGastro/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"relativePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"modules/NsGastro/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"requires-composer"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"routes-file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/var/www/html/default/modules/NsGastro/Routes/web.php"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"views-path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/var/www/html/default/modules/NsGastro/Resources/Views"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"views-relativePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"modules/NsGastro/Views"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"autoloaded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"entry-class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Modules</span><span class="se">\\</span><span class="s2">NsGastro</span><span class="se">\\</span><span class="s2">NsGastroModule"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"providers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"NsGastro/Providers/ModuleServiceProvider.php"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"commands"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"psr-4-compliance"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"langFiles"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NsGastro/Lang/ar.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"de"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NsGastro/Lang/de.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NsGastro/Lang/en.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"es"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NsGastro/Lang/es.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NsGastro/Lang/fr.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"it"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NsGastro/Lang/it.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"nl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NsGastro/Lang/nl.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"pt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NsGastro/Lang/pt.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sq"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NsGastro/Lang/sq.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NsGastro/Lang/tr.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NsGastro/Lang/vi.json"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"migrations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"all-migrations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"NsGastro/Migrations/UpdateToV5Migration.php"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
       </div>
