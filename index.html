@@ -391,6 +391,12 @@
                   <li>
                     <a href="#disable-module" class="toc-h2 toc-link" data-title="Disable Module">Disable Module</a>
                   </li>
+                  <li>
+                    <a href="#remove-module" class="toc-h2 toc-link" data-title="Remove Module">Remove Module</a>
+                  </li>
+                  <li>
+                    <a href="#upload-module" class="toc-h2 toc-link" data-title="Upload Module">Upload Module</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -1410,7 +1416,11 @@ The generated token will allow any app using it to behave as the user who genera
   </span><span class="nl">"total_invalid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='enable-module'>Enable Module</h2>
-<p>This endpoint shoudl be used to enable a module using it&#39;s identifier. You&#39;ll replace <code>{identifier}</code> with the module&#39;s identifier you want to enable. Performing this will not execute the module migration if they are needed. By accessing NexoPOS, the migration will be performed.</p>
+<p>This endpoint shoudl be used to enable a module using it&#39;s identifier. You&#39;ll replace <code>{identifier}</code> with the module&#39;s identifier you want to enable. </p>
+
+<aside class="notice">
+Performing this will not execute the module migration if they are needed. By accessing NexoPOS, the migration will be performed.
+</aside>
 
 <div class="endpoint">
     <div>
@@ -1491,7 +1501,13 @@ The generated token will allow any app using it to behave as the user who genera
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='disable-module'>Disable Module</h2>
-<p>This endpoint is used to disable a module using it&#39;s identifier. You&#39;ll replace <code>{identifier}</code> by the module&#39;s identifer you want to disable. Note that this method can&#39;t be used as way around to disable a module in case you&#39;re not able to access the dashboard. Please refer to <a href="https://my.nexopos.com/en/documentation/troubleshooting/how-to-disable-a-module-without-dashboard-access-on-nexopos-4-x">this guide</a> to disable a module when you&#39;re locked out of the dashboard.</p>
+<p>This endpoint is used to disable a module using it&#39;s identifier. You&#39;ll replace <code>{identifier}</code> by the module&#39;s identifer you want to disable. </p>
+
+<aside class="notice">
+Note that this method can't be used as way around to disable a module in case you're not able to access the dashboard.
+</aside>
+
+<p>Please refer to <a href="https://my.nexopos.com/en/documentation/troubleshooting/how-to-disable-a-module-without-dashboard-access-on-nexopos-4-x">this guide</a> to disable a module when you&#39;re locked out of the dashboard.</p>
 
 <div class="endpoint">
     <div>
@@ -1580,6 +1596,49 @@ The generated token will allow any app using it to behave as the user who genera
       </span><span class="s2">"NsGastro/Migrations/UpdateToV5Migration.php"</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='remove-module'>Remove Module</h2>
+<p>This endpoint will remove the module from NexoPOS using the provided identifier. This will also delete all tables that might have been created by the module. You&#39;ll replace <code>{identifier}</code> with the module&#39;s identifier.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method delete">delete</div>
+        <div class="path">api/modules/{identifier}/delete</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[success|error]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"module"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{}"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='upload-module'>Upload Module</h2>
+<p>Use this endpoint to upload a module as a zip file. This endpoint will perform install and update if necessary.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method post">post</div>
+        <div class="path">api/modules</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"module"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[zip binary]"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[error|success]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
       </div>
