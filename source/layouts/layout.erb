@@ -72,7 +72,9 @@ under the License.
       </span>
     </a>
     <div class="toc-wrapper">
-      <%= image_tag "logo.png", class: 'logo' %>
+      <div style="display:flex; justify-content: center; align-items: center; padding: 28px 0;">
+        <%= image_tag "logo-main.png", style: 'width: 80%', class: 'logo' %>
+      </div>
       <% if language_tabs.any? %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
