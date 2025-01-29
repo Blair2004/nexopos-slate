@@ -98,6 +98,89 @@ Use this endpoint to receive a list of available modules.
 }
 ```
 
+## Enable Module
+This endpoint shoudl be used to enable a module using it's identifier. You'll replace `{identifier}` with the module's identifier you want to enable. Performing this will not execute the module migration if they are needed. By accessing NexoPOS, the migration will be performed.
+
+<div class="endpoint">
+    <div>
+        <div class="method put">put</div>
+        <div class="path">api/modules/{identifier}/enable</div>
+    </div>
+</div>
+
+> Response
+
+```json
+{
+  "status": "success",
+  "message": "The module has correctly been enabled.",
+  "data": {
+    "code": "module_enabled",
+    "module": {
+      "namespace": "NsGastro",
+      "version": "5.3",
+      "author": "Blair Jersyer",
+      "name": "Gastro - Restaurant Extension",
+      "description": "Gastro provides a restaurant features on top of NexoPOS to ease restaurant management.",
+      "core": {
+        "min-version": "5.2.6",
+        "max-version": "5.3.0"
+      },
+      "recommends": {
+        "dependency": "Nexo Print Adapter"
+      },
+      "requires": [],
+      "files": [
+        ".gitignore",
+        "NsGastroModule.php",
+        "README.md",
+        "commands.txt",
+        "config.xml",
+        "index.php",
+        "package-lock.json",
+        "package.json",
+        "phpunit.ci.xml",
+        "phpunit.xml",
+        "phpunit.xml.bak",
+        "postcss.config.cjs",
+        "tailwind.config.cjs",
+        "todo",
+        "tsconfig.json",
+        "vite.config.js"
+      ],
+      "api-file": "/var/www/html/default/modules/NsGastro/Routes/api.php",
+      "composer-installed": false,
+      "controllers-path": "/var/www/html/default/modules/NsGastro/Http/Controllers",
+      "controllers-relativePath": "NsGastro/Http/Controllers",
+      "enabled": false,
+      "has-languages": true,
+      "lang-relativePath": "modules/NsGastro/Lang",
+      "index-file": "/var/www/html/default/modules/NsGastro/NsGastroModule.php",
+      "path": "/var/www/html/default/modules/NsGastro/",
+      "relativePath": "modules/NsGastro/",
+      "requires-composer": false,
+      "routes-file": "/var/www/html/default/modules/NsGastro/Routes/web.php",
+      "views-path": "/var/www/html/default/modules/NsGastro/Resources/Views",
+      "views-relativePath": "modules/NsGastro/Views",
+      "autoloaded": false,
+      "entry-class": "Modules\\NsGastro\\NsGastroModule",
+      "providers": [
+        "NsGastro/Providers/ModuleServiceProvider.php"
+      ],
+      "actions": [],
+      "filters": [],
+      "commands": [],
+      "psr-4-compliance": true,
+      "migrations": [],
+      "all-migrations": [
+        "NsGastro/Migrations/UpdateToV5Migration.php"
+      ]
+    },
+    "migrations": []
+  }
+}
+```
+
 ## Disable Module
 
 This endpoint is used to disable a module using it's identifier. You'll replace `{identifier}` by the module's identifer you want to disable. Note that this method can't be used as way around to disable a module in case you're not able to access the dashboard. Please refer to [this guide](https://my.nexopos.com/en/documentation/troubleshooting/how-to-disable-a-module-without-dashboard-access-on-nexopos-4-x) to disable a module when you're locked out of the dashboard.
@@ -191,3 +274,4 @@ This endpoint is used to disable a module using it's identifier. You'll replace 
   }
 }
 ```
+
