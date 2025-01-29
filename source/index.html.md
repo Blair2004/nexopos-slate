@@ -13,6 +13,7 @@ includes:
   - authentication
   - user
   - products
+  - modules
   # - categories
   # - unit_quantities
   # - crud
