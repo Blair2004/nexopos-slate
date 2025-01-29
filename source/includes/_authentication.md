@@ -28,7 +28,7 @@ We'll now use this token on our header like this.
 # With Laravel Http Client
 use Illuminate\Support\Facades\Http;
 
-$client   = Http::withToken( '[yourtoken]' )->get( '/api/products' );
+$client   = Http::withToken( '[yourtoken]' )->acceptJson()->get( '/api/user' );
 
 ```
 
