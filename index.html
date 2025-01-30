@@ -333,6 +333,23 @@
             <a href="#user" class="toc-h1 toc-link" data-title="User">User</a>
           </li>
           <li>
+            <a href="#customers" class="toc-h1 toc-link" data-title="Customers">Customers</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#retreive-customers" class="toc-h2 toc-link" data-title="Retreive Customers">Retreive Customers</a>
+                  </li>
+                  <li>
+                    <a href="#retreive-single-customer" class="toc-h2 toc-link" data-title="Retreive Single Customer">Retreive Single Customer</a>
+                  </li>
+                  <li>
+                    <a href="#recently-active-customers" class="toc-h2 toc-link" data-title="Recently Active Customers">Recently Active Customers</a>
+                  </li>
+                  <li>
+                    <a href="#customer-latest-orders" class="toc-h2 toc-link" data-title="Customer Latest Orders">Customer Latest Orders</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#products" class="toc-h1 toc-link" data-title="Products">Products</a>
               <ul class="toc-list-h2">
                   <li>
@@ -349,6 +366,9 @@
                   </li>
                   <li>
                     <a href="#delete-product" class="toc-h2 toc-link" data-title="Delete Product">Delete Product</a>
+                  </li>
+                  <li>
+                    <a href="#get-product-history" class="toc-h2 toc-link" data-title="Get Product History">Get Product History</a>
                   </li>
                   <li>
                     <a href="#get-product-variations" class="toc-h2 toc-link" data-title="Get Product Variations">Get Product Variations</a>
@@ -370,6 +390,12 @@
                   </li>
                   <li>
                     <a href="#product-search-using-term" class="toc-h2 toc-link" data-title="Product: Search Using Term">Product: Search Using Term</a>
+                  </li>
+                  <li>
+                    <a href="#product-stock-adjustment" class="toc-h2 toc-link" data-title="Product: Stock Adjustment">Product: Stock Adjustment</a>
+                  </li>
+                  <li>
+                    <a href="#product-unit-conversion" class="toc-h2 toc-link" data-title="Product: Unit Conversion">Product: Unit Conversion</a>
                   </li>
                   <li>
                     <a href="#delete-unit-quantity" class="toc-h2 toc-link" data-title="Delete Unit Quantity">Delete Unit Quantity</a>
@@ -499,6 +525,219 @@ The generated token will allow any app using it to behave as the user who genera
   </span><span class="nl">"origin_store_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nl">"wc_customer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='customers'>Customers</h1><h2 id='retreive-customers'>Retreive Customers</h2>
+<p>This endpoint will retreive all registered customers. The output is not paginated, you might therefore consider using the CRUD approach.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method get">get</div>
+        <div class="path">api/customers</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1792</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dooley.linnea"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">1723</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx@xxx.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$2y$10$3q81nABSmQzwiGaWUBD6Y.UHguEtBJ2PGH/l4Sy5FPW9FfPV5Lx0a"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rita"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Batz"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+1.000.000.000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pobox"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"activation_expiration"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_sales_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_sales"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"birth_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"purchases_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">216.00000464</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"owed_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"credit_limit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"account_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"activation_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"remember_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:41.000000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-30T10:55:11.000000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"origin_store_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"wc_customer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"billing"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h2 id='retreive-single-customer'>Retreive Single Customer</h2>
+<p>Use this endpoint to details for a specific customer. You&#39;ll make sure to replace <code>{customer_id}</code> with the ID of the customer for which you would like to get information.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method get">get</div>
+        <div class="path">api/customers/{customer_id}</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1792</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dooley.linnea"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">1723</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nmetz@funk.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$2y$10$3q81nABSmQzwiGaWUBD6Y.UHguEtBJ2PGH/l4Sy5FPW9FfPV5Lx0a"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rita"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Batz"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+1.660.362.3086"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"pobox"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32287"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"activation_expiration"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total_sales_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total_sales"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"birth_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"purchases_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">216.00000464</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"owed_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"credit_limit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"account_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"activation_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"remember_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:41.000000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-30T10:55:11.000000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"origin_store_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"wc_customer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Virtual optimal throughput"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reward_system_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"minimal_credit_payment"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:40.000000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:40.000000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"billing"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='recently-active-customers'>Recently Active Customers</h2>
+<p>This endpoint will give a list of the customers that has recently been active.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method get">get</div>
+        <div class="path">api/customers/recently-active</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1796</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hudson.keshawn"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">1722</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"karli39@yahoo.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$2y$10$xJTDtiBtOtsMWU8MqnHa6eaRjZRisOgxXWkujnpSlFoIynvONjyba"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adrienne"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gerhold"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+1.734.246.6288"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pobox"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31266"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"activation_expiration"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_sales_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_sales"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"birth_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"purchases_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">880.00003056</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"owed_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"credit_limit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"account_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"activation_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"remember_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:41.000000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-30T11:14:43.000000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"origin_store_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"wc_customer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"billing"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Virtual optimal throughput"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reward_system_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"minimal_credit_payment"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:40.000000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:40.000000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h2 id='customer-latest-orders'>Customer Latest Orders</h2>
+<p>Use this endpoint to retreive latest orders placed by a specific customer.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method get">get</div>
+        <div class="path">api/customers/{customer_id}/orders</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"250130-016"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"takeaway"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"process_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not-available"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"delivery_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not-available"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"discount_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"support_instalments"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"discount_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_without_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_with_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_coupons"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_cogs"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tax_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"products_tax_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">13.793104</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_tax_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tax_group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tax_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exclusive"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tendered"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"change"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"final_payment_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_instalments"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1796</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"note_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"register_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"voidance_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-30 11:14:41"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-30 11:14:41"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"human_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paid"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"human_delivery_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not Available"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre></div><h1 id='products'>Products</h1><h2 id='retreiving-products'>Retreiving Products</h2>
 <div class="endpoint">
     <div>
@@ -748,6 +987,55 @@ The generated token will allow any app using it to behave as the user who genera
     </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[success|error]"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='get-product-history'>Get Product History</h2>
+<p>This endpoint will provide a full list of stock movement that has occured on a specific product. You&#39;ll replace <code>{product_id}</code> with the ID of the product for which you would like to get the history. Note that this is not paginated, for a product having a very long history, you might consider increasig the execution time or refer to the CRUD approach which is paginated.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method get">get</div>
+        <div class="path">api/products/{product_id}/history</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">124</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"procurement_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"procurement_product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"order_product_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"operation_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"procured"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"unit_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"before_quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"after_quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.23</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.15</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-29T12:54:07.000000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-29T12:54:07.000000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"unit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teaspoon"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teaspoon"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"preview_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"base_unit"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:23:20.000000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:23:20.000000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre></div><h2 id='get-product-variations'>Get Product Variations</h2>
 <p>While this feature is not yet fully used on NexoPOS as a single variation is enforced for now, you can use it in the future to retreive products variations.</p>
 
@@ -1285,6 +1573,87 @@ The generated token will allow any app using it to behave as the user who genera
             </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-12-12"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='product-stock-adjustment'>Product: Stock Adjustment</h2>
+<p>Use this endpoint to batch edit product inventory. You&#39;ll use as adjustment action the following list:</p>
+
+<ul>
+<li>procured</li>
+<li>deleted</li>
+<li>outgoing-transfer</li>
+<li>incoming-transfer</li>
+<li>transfer-rejected</li>
+<li>transfer-canceled</li>
+<li>removed</li>
+<li>added</li>
+<li>sold</li>
+<li>returned</li>
+<li>defective</li>
+<li>lost</li>
+</ul>
+
+<div class="endpoint">
+    <div>
+        <div class="method post">post</div>
+        <div class="path">api/products/adjusments</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[product_id]"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"adjust_unit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"unit_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[number]"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[number]"</span><span class="p">,</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"unit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"adjust_quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[number]"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"adjust_action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[action]"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"adjust_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[text]"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"procurement_product_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[number]"</span><span class="p">,</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[success|error]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[text]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='product-unit-conversion'>Product: Unit Conversion</h2>
+<p>This endpoint should be used to perform a unit conversion for a specific product. Make sure to replace <code>{product_id}</code> with the ID of the product for which you would like to convert the units.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method post">post</div>
+        <div class="path">api/products/{product_id}/units/conversion</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[unit_id]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[unit_id]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[number]"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[success|error]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[text]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='delete-unit-quantity'>Delete Unit Quantity</h2>
 <p>Use this to delete a unit quantity attached to a product. This implies all the inventory assigned to that product using the selected unit, will also be deleted (and can&#39;t be retreived). You&#39;ll replace &quot;{unit_quantity_id}&quot; with the id you would like to delete.</p>
