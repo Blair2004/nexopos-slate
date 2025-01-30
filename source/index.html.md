@@ -12,6 +12,7 @@ toc_footers:
 includes:
   - authentication
   - user
+  - customers
   - products
   - modules
   # - categories

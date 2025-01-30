@@ -267,6 +267,58 @@ You'll use this to delete a product with all it's related tables. This endpoint 
 }
 ```
 
+## Get Product History
+
+This endpoint will provide a full list of stock movement that has occured on a specific product. You'll replace `{product_id}` with the ID of the product for which you would like to get the history. Note that this is not paginated, for a product having a very long history, you might consider increasig the execution time or refer to the CRUD approach which is paginated.
+
+<div class="endpoint">
+    <div>
+        <div class="method get">get</div>
+        <div class="path">api/products/{product_id}/history</div>
+    </div>
+</div>
+
+> Response
+
+```json
+[
+  {
+    "id": 7,
+    "product_id": 124,
+    "procurement_id": 4,
+    "procurement_product_id": 7,
+    "order_id": null,
+    "order_product_id": null,
+    "operation_type": "procured",
+    "unit_id": 7,
+    "before_quantity": 0,
+    "quantity": 5,
+    "after_quantity": 5,
+    "unit_price": 1.23,
+    "total_price": 6.15,
+    "description": null,
+    "author": 8,
+    "uuid": null,
+    "created_at": "2025-01-29T12:54:07.000000Z",
+    "updated_at": "2025-01-29T12:54:07.000000Z",
+    "unit": {
+      "id": 7,
+      "name": "teaspoon",
+      "identifier": "teaspoon",
+      "description": null,
+      "author": 8,
+      "group_id": 4,
+      "value": 1,
+      "preview_url": null,
+      "base_unit": true,
+      "uuid": null,
+      "created_at": "2025-01-26T23:23:20.000000Z",
+      "updated_at": "2025-01-26T23:23:20.000000Z"
+    }
+  }
+]
+```
+
 ## Get Product Variations
 
 While this feature is not yet fully used on NexoPOS as a single variation is enforced for now, you can use it in the future to retreive products variations.
@@ -827,6 +879,93 @@ Use this endpoint to search product using a term. As a response you'll have an a
 }
 ```
 
+## Product: Stock Adjustment
+
+Use this endpoint to batch edit product inventory. You'll use as adjustment action the following list:
+
+- procured
+- deleted
+- outgoing-transfer
+- incoming-transfer
+- transfer-rejected
+- transfer-canceled
+- removed
+- added
+- sold
+- returned
+- defective
+- lost
+
+<div class="endpoint">
+    <div>
+        <div class="method post">post</div>
+        <div class="path">api/products/adjusments</div>
+    </div>
+</div>
+
+> Request
+
+```json
+{
+    "products": [
+        {
+            "id": "[product_id]",
+            "adjust_unit": {
+                "unit_id": "[number]",
+                "sale_price": "[number]",
+            },
+            "unit": {
+                "name": "[string]"
+            },
+            "adjust_quantity": "[number]",
+            "adjust_action": "[action]",
+            "adjust_reason": "[text]",
+            "procurement_product_id": "[number]",
+        }
+    ]
+}
+```
+
+> Response
+
+```json
+{
+    "status": "[success|error]",
+    "message": "[text]",
+    "data": []
+}
+```
+
+## Product: Unit Conversion
+
+This endpoint should be used to perform a unit conversion for a specific product. Make sure to replace `{product_id}` with the ID of the product for which you would like to convert the units.
+
+<div class="endpoint">
+    <div>
+        <div class="method post">post</div>
+        <div class="path">api/products/{product_id}/units/conversion</div>
+    </div>
+</div>
+
+> Request
+
+```json
+{
+    "from": "[unit_id]",
+    "to": "[unit_id]",
+    "quantity": "[number]"
+}
+```
+
+> Response
+
+```json
+{
+    "status": "[success|error]",
+    "message": "[text]"
+}
+```
+
 ## Delete Unit Quantity
 Use this to delete a unit quantity attached to a product. This implies all the inventory assigned to that product using the selected unit, will also be deleted (and can't be retreived). You'll replace "{unit_quantity_id}" with the id you would like to delete.
 
@@ -847,6 +986,7 @@ Use this to delete a unit quantity attached to a product. This implies all the i
 ```
 
 ## Delete All Products
+
 Use this to remove all products created so far. Depending on your products, you might need to increase the PHP Execution time as this will not only clear products but all related tables.
 
 <div class="endpoint">
