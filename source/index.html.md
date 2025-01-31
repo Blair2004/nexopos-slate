@@ -13,6 +13,7 @@ includes:
   - authentication
   - user
   - customers
+  - customers_groups
   - products
   - modules
   # - categories
