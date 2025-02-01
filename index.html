@@ -366,6 +366,9 @@
                     <a href="#customer-39-s-coupons" class="toc-h2 toc-link" data-title="Customer's Coupons">Customer's Coupons</a>
                   </li>
                   <li>
+                    <a href="#load-customer-coupon" class="toc-h2 toc-link" data-title="Load Customer Coupon">Load Customer Coupon</a>
+                  </li>
+                  <li>
                     <a href="#customer-39-s-reward-system" class="toc-h2 toc-link" data-title="Customer's Reward System">Customer's Reward System</a>
                   </li>
                   <li>
@@ -1058,6 +1061,29 @@ The generated token will allow any app using it to behave as the user who genera
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
+</span></code></pre></div><h2 id='load-customer-coupon'>Load Customer Coupon</h2>
+<p>Use this endpoint to load customer coupon.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method post">post</div>
+        <div class="path">api/customers/coupons/{coupon}</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[number]"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='customer-39-s-reward-system'>Customer&#39;s Reward System</h2>
 <p>Use this endpoint to retreive all the reward system the customer is assigned to. Note that reward system must first be assigned to the customers group.
 You&#39;ll replace <code>{customer_id}</code> with the ID of the customer for which you woud like to get the rewards. The response is a CRUD Type reponse, which is paginated.</p>
