@@ -517,6 +517,33 @@ Use this endpoint to retrieve the coupons that has been generated for a specific
 ]
 ```
 
+
+## Load Customer Coupon
+Use this endpoint to load customer coupon.
+
+<div class="endpoint">
+    <div>
+        <div class="method post">post</div>
+        <div class="path">api/customers/coupons/{coupon}</div>
+    </div>
+</div>
+
+> Request
+
+```json
+{
+  "customer_id": "[number]"
+}
+```
+
+> Response
+
+```json
+{
+  ""
+}
+```
+
 ## Customer's Reward System
 
 Use this endpoint to retreive all the reward system the customer is assigned to. Note that reward system must first be assigned to the customers group.
@@ -660,4 +687,3 @@ Use this endpoint to create a new wallet entry for a specific customer. Make sur
   }
 }
 ```
-
