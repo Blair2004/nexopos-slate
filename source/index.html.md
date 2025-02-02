@@ -15,6 +15,7 @@ includes:
   - customers
   - customers_groups
   - products
+  - products_categories
   - modules
   # - categories
   # - unit_quantities
