@@ -1,6 +1,6 @@
 # Products
 
-## Retreiving Products
+## Retrieving Products
 
 <div class="endpoint">
     <div>
