@@ -459,6 +459,29 @@
               </ul>
           </li>
           <li>
+            <a href="#products-categories" class="toc-h1 toc-link" data-title="Products Categories">Products Categories</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-category" class="toc-h2 toc-link" data-title="Create Category">Create Category</a>
+                  </li>
+                  <li>
+                    <a href="#single-category" class="toc-h2 toc-link" data-title="Single Category">Single Category</a>
+                  </li>
+                  <li>
+                    <a href="#get-categories" class="toc-h2 toc-link" data-title="Get Categories">Get Categories</a>
+                  </li>
+                  <li>
+                    <a href="#update-category" class="toc-h2 toc-link" data-title="Update Category">Update Category</a>
+                  </li>
+                  <li>
+                    <a href="#delete-category" class="toc-h2 toc-link" data-title="Delete Category">Delete Category</a>
+                  </li>
+                  <li>
+                    <a href="#category-39-s-products" class="toc-h2 toc-link" data-title="Category's Products">Category's Products</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#modules" class="toc-h1 toc-link" data-title="Modules">Modules</a>
               <ul class="toc-list-h2">
                   <li>
@@ -2334,6 +2357,210 @@ Note that the response is a CRUD Type response, this means it&#39;s paginated.</
     </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[success|error]"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='products-categories'>Products Categories</h1><h2 id='create-category'>Create Category</h2>
+<p>Use this endpoint to create a new product category.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method post">post</div>
+        <div class="path">api/categories</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[number]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"displays_on_pos"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[boolean]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"media_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[number]"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[success|error]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condiments"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"media_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"preview_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://exmaple.com/image.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"displays_on_pos"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_items"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Additional condiments that can be added to meals"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:42.000000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:45.000000Z"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='single-category'>Single Category</h2>
+<p>Use this endpoint to retrieve a single category. You&#39;ll replace <code>{category_id}</code> by the actual category you would like to get.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method get">get</div>
+        <div class="path">api/categories/{category_id}</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condiments"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"media_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"preview_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://exmaple.com/image.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"displays_on_pos"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_items"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Additional condiments that can be added to meals"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:42.000000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:45.000000Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='get-categories'>Get Categories</h2>
+<p>Use this endpoint to retrieve all defined product categories.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method get">get</div>
+        <div class="path">api/categories</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condiments"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"media_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"preview_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://exmaple.com/image.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"displays_on_pos"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_items"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Additional condiments that can be added to meals"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:42.000000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:45.000000Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h2 id='update-category'>Update Category</h2>
+<p>Use this endpoint to update an existing category using <code>{category_id}</code>, that needs to be replaced with the actual ID of the category you would like to udpate.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method put">put</div>
+        <div class="path">api/categories/{category_id}</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[number]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"displays_on_pos"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[boolean]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"media_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[number]"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[success|error]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condiments"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"media_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"preview_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://exmaple.com/image.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"displays_on_pos"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_items"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Additional condiments that can be added to meals"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:42.000000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:45.000000Z"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='delete-category'>Delete Category</h2>
+<p>Use this endpoint to delete an existing category. Note that you might encounter an error if the category is still assigned to product. You&#39;ll replace <code>{category_id}</code> with the ID of the category you would like to delete.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method delete">delete</div>
+        <div class="path">api/categories/{category_id}</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[success|error]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='category-39-s-products'>Category&#39;s Products</h2>
+<p>Use this endpoint to retreive all the product that are assigned to a category. You&#39;ll replace <code>{category_id}</code> by the ID of the category you would like to get the products.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method get">get</div>
+        <div class="path">api/categories/{category_id}/products</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creamer Packet"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tax_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inclusive"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tax_group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tax_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"product_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dematerialized"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accurate_tracking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auto_cogs"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"stock_management"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disabled"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"barcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2897183678939"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"barcode_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ean13"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nwPUboV8ML3oVUW"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Created via tests"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"thumbnail_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"unit_group"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"on_expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prevent_sales"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expires"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"searchable"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:42.000000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:42.000000Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre></div><h1 id='modules'>Modules</h1>
 <p>This section allows you to interact with existing module.</p>
 <h2 id='list-modules'>List Modules</h2>
