@@ -35,7 +35,5 @@ The user endpoint give an overview of the logged user. With this you'll be able 
   "activation_token": null,
   "created_at": "2025-01-13T22:52:01.000000Z",
   "updated_at": "2025-01-27T09:42:33.000000Z",
-  "origin_store_id": null,
-  "wc_customer_id": null
 }
 ```

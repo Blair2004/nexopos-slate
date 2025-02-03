@@ -12,6 +12,7 @@ toc_footers:
 includes:
   - authentication
   - user
+  - crud
   - customers
   - customers_groups
   - products
