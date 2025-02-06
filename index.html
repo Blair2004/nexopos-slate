@@ -530,6 +530,28 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#fields" class="toc-h1 toc-link" data-title="Fields">Fields</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-fields" class="toc-h2 toc-link" data-title="Get Fields">Get Fields</a>
+                  </li>
+                  <li>
+                    <a href="#available-fields" class="toc-h2 toc-link" data-title="Available Fields">Available Fields</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#forms" class="toc-h1 toc-link" data-title="Forms">Forms</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-form" class="toc-h2 toc-link" data-title="Get Form">Get Form</a>
+                  </li>
+                  <li>
+                    <a href="#available-forms" class="toc-h2 toc-link" data-title="Available Forms">Available Forms</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://my.nexopos.com/en/marketplace'>NexoPOS Marketplace</a></li>
@@ -3535,7 +3557,467 @@ Note that this method can't be used as way around to disable a module in case yo
     </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[error|success]"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
+</span></code></pre></div><h1 id='fields'>Fields</h1>
+<p>The Fields endpoint give you access to a structure of defined fields. The way fields are defined varies from one instance of FieldsService class to another. Fields are defined on the directory <code>app/Fields</code>;</p>
+<h2 id='get-fields'>Get Fields</h2>
+<p>Use this endpoint to get the shape of a fields. You can optionnally provide an identifier that will be used by the FieldsService class. For example, this is used to retrieve the login, registration fields etc. We&#39;ll use the login fields as an example.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method get">get</div>
+        <div class="path">api/fields/{resource}/{identifier?}</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Response </p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Username"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provide your username."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"validation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"required"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"username"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Password"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provide your password."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"validation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"required"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h2 id='available-fields'>Available Fields</h2>
+<p>Here is a list of available fields and their identifier.</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Class</th>
+<th>Identifier</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authentication Fields</td>
+<td>App\Fields\AuthLoginFields</td>
+<td>ns.login</td>
+</tr>
+<tr>
+<td>Registration Fields</td>
+<td>App\Fields\AuthRegisterFields</td>
+<td>ns.register</td>
+</tr>
+<tr>
+<td>Cash Register Cash In</td>
+<td>App\Fields\CashRegisterCashingFields</td>
+<td>ns.cash-registers-cashing</td>
+</tr>
+<tr>
+<td>Cash Register Cash out</td>
+<td>App\Fields\CashRegisterCashoutFields</td>
+<td>ns.cash-registers-cashout</td>
+</tr>
+<tr>
+<td>Cash Register Closing</td>
+<td>App\Fields\CashRegisterClosingFields</td>
+<td>ns.cash-registers-closing</td>
+</tr>
+<tr>
+<td>Cash Register Opening</td>
+<td>App\Fields\CashRegisterOpeningFields</td>
+<td>ns.cash-registers-opening</td>
+</tr>
+<tr>
+<td>Customer Account Fields</td>
+<td>App\Fields\CustomerAccountFields</td>
+<td>ns.customers-account</td>
+</tr>
+<tr>
+<td>Direct Transaction</td>
+<td>App\Fields\DirectTransactionFields</td>
+<td>ns.direct-transaction</td>
+</tr>
+<tr>
+<td>Entity Transaction</td>
+<td>App\Fields\EntityTransactionFields</td>
+<td>ns.entity-transaction</td>
+</tr>
+<tr>
+<td>Layaway Fields</td>
+<td>App\Fields\LayawayFields</td>
+<td>ns.layaway</td>
+</tr>
+<tr>
+<td>New Password Fields</td>
+<td>App\Fields\NewPasswordFields</td>
+<td>ns.new-password</td>
+</tr>
+<tr>
+<td>Order Payment Fields</td>
+<td>App\Fields\OrderPaymentFields</td>
+<td>ns.order-payments</td>
+</tr>
+<tr>
+<td>Password Lost Fields</td>
+<td>App\Fields\PasswordLostFields</td>
+<td>ns.password-lost</td>
+</tr>
+<tr>
+<td>POS Order Settings</td>
+<td>App\Fields\PosOrderSettingsFields</td>
+<td>ns.pos-order-settings</td>
+</tr>
+<tr>
+<td>Procurement Fields</td>
+<td>App\Fields\ProcurementFields</td>
+<td>ns.procurement-fields</td>
+</tr>
+<tr>
+<td>Recurring Transaction Fields</td>
+<td>App\Fields\RecurringTransactionFields</td>
+<td>ns.recurring-transaction</td>
+</tr>
+<tr>
+<td>Refund Product Fields</td>
+<td>App\Fields\RefundProductFields</td>
+<td>ns.refund-product</td>
+</tr>
+<tr>
+<td>Reset Fields</td>
+<td>App\Fields\ResetFields</td>
+<td>ns.reset</td>
+</tr>
+<tr>
+<td>Scheduled Transaction Fields</td>
+<td>App\Fields\ScheduledTransactionFields</td>
+<td>ns.scheduled-transaction</td>
+</tr>
+<tr>
+<td>Units Fields</td>
+<td>App\Fields\UnitFields</td>
+<td>ns.units-fields</td>
+</tr>
+<tr>
+<td>Units Group Fields</td>
+<td>App\Fields\UnitGroupFields</td>
+<td>ns.units-group-fields</td>
+</tr>
+</tbody></table>
+<h1 id='forms'>Forms</h1>
+<p>Unlike <a href="#fields">fields</a>, forms provide a more complex structure of fields. This usually consist of a tabbed form. This is currently used by the settings.</p>
+<h2 id='get-form'>Get Form</h2>
+<p>Use this endpoint to retrieve the shape of a declared form. You&#39;ll replace <code>{resource}</code> by the identifier of the Form and <code>{identifier?}</code> (optional) to provide more context to the Form. Note that the context might be needed or not by the Form, you should refer to the Form or it&#39;s declared documentation to understand how to use it.</p>
+
+<div class="endpoint">
+    <div>
+        <div class="method get">get</div>
+        <div class="path">api/forms/{resource}/{identifier?}</div>
+    </div>
+</div>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+
+<p>We&#39;ll use <code>ns.user-profile</code> to retrieve the form in use on the user profile section.</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"tabs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"General"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"theme"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dark"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"select"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dark"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dark"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Light"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"light"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Define what is the theme that applies to the dashboard."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avatar"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avatar_link"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"media"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Define the image that should be used as an avatar."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Language"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"language"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"select"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"English"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deutsch"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Français"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fr"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Espanol"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"es"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Italian"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"it"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arabic"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ar"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Portuguese"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pt"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Türkçe"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tr"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ភាសាខ្មែរ"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"km"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vietnamese"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vi"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shqiptare"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sq"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Choose the language for the current account."</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shipping"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"first_name"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First Name"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provide the billing first name."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"last_name"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Last Name"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provide the billing last name."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phone"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Billing phone number."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address_1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Address 1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Billing First Address."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address_2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Address 2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Billing Second Address."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"country"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Country"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Billing Country."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"city"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pobox"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PO.Box"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Postal Address"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Biling"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"first_name"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First Name"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provide the billing first name."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"last_name"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Last Name"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provide the billing last name."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phone"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Billing phone number."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address_1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Address 1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Billing First Address."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address_2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Address 2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Billing Second Address."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"country"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Country"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Billing Country."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"city"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pobox"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PO.Box"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Postal Address"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Security"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Old Password"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"old_password"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provide the old password."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Password"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Change your password with a better stronger password."</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"validation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sometimes|min:6"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Password Confirmation"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password_confirm"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Change your password with a better stronger password."</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"validation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"same:security.password"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API Token"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"component"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nsToken"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='available-forms'>Available Forms</h2>
+<p>Here is a list of available form and their identifier.</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Class</th>
+<th>Identifier</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Order Address</td>
+<td>App\Forms\POSAddressForm</td>
+<td>ns.pos-addresses</td>
+</tr>
+<tr>
+<td>Procurement Form</td>
+<td>App\Forms\ProcurementForm</td>
+<td>ns.procurement</td>
+</tr>
+<tr>
+<td>User Profile</td>
+<td>App\Forms\UserProfileForm</td>
+<td>ns.user-profile</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
