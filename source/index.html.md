@@ -18,6 +18,8 @@ includes:
   - products
   - products_categories
   - modules
+  - fields
+  - forms
   # - categories
   # - unit_quantities
   # - crud
