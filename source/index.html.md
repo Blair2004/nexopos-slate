@@ -17,6 +17,7 @@ includes:
   - customers_groups
   - products
   - products_categories
+  - medias
   - modules
   - fields
   - forms
