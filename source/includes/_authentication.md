@@ -33,9 +33,9 @@ $client   = Http::withToken( '[yourtoken]' )->acceptJson()->get( '/api/user' );
 ```
 
 ```js
+// using Axios with Javascript.
 const axios = require('axios');
-
-const API_URL = 'https://api.example.com/authenticate';
+const API_URL = 'https://example.com/api/user';
 const TOKEN = 'your_jwt_token_here'; // Replace with your actual JWT token
 
 async function authenticate() {

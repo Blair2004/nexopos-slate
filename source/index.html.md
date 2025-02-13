@@ -11,17 +11,18 @@ toc_footers:
 
 includes:
   - authentication
-  - user
-  - crud
+  - categories
   - customers
   - customers_groups
-  - products
-  - products_categories
-  - medias
-  - modules
+  - crud
   - fields
   - forms
-  # - categories
+  - medias
+  - modules
+  - notifications
+  - products
+  - products_categories
+  - user
   # - unit_quantities
   # - crud
   # - orders
