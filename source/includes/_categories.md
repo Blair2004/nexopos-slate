@@ -222,7 +222,7 @@ If `{id}` is not provided, all parent categories are displayed first. If `{id}` 
 
 <div class="endpoint">
     <div>
-        <div class="method delete">delete</div>
+        <div class="method get">get</div>
         <div class="path">api/categories/pos/{id?}</div>
     </div>
 </div>
