@@ -23,6 +23,7 @@ includes:
   - products
   - products_categories
   - user
+  - order
   # - unit_quantities
   # - crud
   # - orders
