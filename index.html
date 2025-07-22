@@ -337,6 +337,9 @@
                   <li>
                     <a href="#testing-token" class="toc-h2 toc-link" data-title="Testing Token">Testing Token</a>
                   </li>
+                  <li>
+                    <a href="#about-response" class="toc-h2 toc-link" data-title="About Response">About Response</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -638,10 +641,13 @@
                     <a href="#retrieve-full-order" class="toc-h2 toc-link" data-title="Retrieve Full Order">Retrieve Full Order</a>
                   </li>
                   <li>
+                    <a href="#delete-order" class="toc-h2 toc-link" data-title="Delete Order">Delete Order</a>
+                  </li>
+                  <li>
                     <a href="#about-payment-status" class="toc-h2 toc-link" data-title="About Payment Status">About Payment Status</a>
                   </li>
                   <li>
-                    <a href="#get-supported-payments" class="toc-h2 toc-link" data-title="Get Supported Payments">Get Supported Payments</a>
+                    <a href="#get-supported-payments-method" class="toc-h2 toc-link" data-title="Get Supported Payments Method">Get Supported Payments Method</a>
                   </li>
                   <li>
                     <a href="#order-processing-status" class="toc-h2 toc-link" data-title="Order Processing Status">Order Processing Status</a>
@@ -709,7 +715,47 @@ The generated token will allow any app using it to behave as the user who genera
 <span class="nx">authenticate</span><span class="p">();</span>
 </code></pre></div>
 <p>NexoPOS token doesn&#39;t expires until they are manually revoked by the user. This behavior is likely to change in the future, therefore you should implement mecanism for testing authentication token.</p>
-<h1 id='categories'>Categories</h1>
+<h2 id='about-response'>About Response</h2>
+<p>NexoPOS uses throughout it&#39;s components a unique convention for all it&#39;s responses. In a traditional way, we have positive response and negative response. A possitive response has as HTTP code status 200 and a negative has 40X (depending on the error). </p>
+<h3 id='action-request'>Action Request</h3>
+<p>When performing an action request (POST, PUT, DELETE), you&#39;ll always receive a <strong>Status Response</strong> that looks like so:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[error|success|info|warnig]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="err">Internally,</span><span class="w"> </span><span class="err">NexoPOS</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">use</span><span class="w"> </span><span class="s2">"error"</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">negative</span><span class="w"> </span><span class="err">errors,</span><span class="w"> </span><span class="err">but</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">behavior</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">changed</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">manually</span><span class="w"> </span><span class="err">returning</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">negative</span><span class="w"> </span><span class="err">response</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">different</span><span class="w"> </span><span class="err">status</span><span class="w"> </span><span class="err">code</span><span class="w"> </span><span class="err">(for</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="s2">"warning"</span><span class="err">).</span><span class="w"> 
+
+</span><span class="err">Additionnally,</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">response</span><span class="w"> </span><span class="err">might</span><span class="w"> </span><span class="err">include</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">used</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">frontend.</span><span class="w"> </span><span class="err">In</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">case</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">order,</span><span class="w"> </span><span class="err">customer,</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">(and</span><span class="w"> </span><span class="err">much</span><span class="w"> </span><span class="err">more)</span><span class="w"> </span><span class="err">creation,</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">**Status</span><span class="w"> </span><span class="err">Response**</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">include</span><span class="w"> </span><span class="s2">"data"</span><span class="w"> </span><span class="err">like</span><span class="w"> </span><span class="err">so</span><span class="w"> </span><span class="err">(illustrative</span><span class="w"> </span><span class="err">output):</span><span class="w">
+
+</span><span class="err">```json</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The product has been created"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>While not common, a negative error can also include the &quot;data&quot;.</p>
+<h3 id='listing-request'>Listing Request</h3>
+<p>A listing request is any typicall &quot;GET&quot; request. Depending on the resource that is fetched, you&#39;ll have different response. If you&#39;re fetching an order, you&#39;ll receive an object of the order, if you&#39;re fetching customers, you&#39;ll receive an array of customer orders and finally, if you&#39;re fetching a CRUD resource, you&#39;ll receive a CRUD object.</p>
+
+<blockquote>
+<p>Response (Illustration for Customers)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blair"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jersyer"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contact@nexopos.com"</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h1 id='categories'>Categories</h1>
 <p>Use these endpoint to interact with the products categories.</p>
 <h2 id='get-categories'>Get Categories</h2>
 <p>This endpoint will returns a not paginated array of categories. You might use the CRUD approach to get a paginated list of categories.</p>
@@ -5488,7 +5534,14 @@ Note that this method can't be used as way around to disable a module in case yo
         </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='about-payment-status'>About Payment Status</h2>
+</span></code></pre></div><h2 id='delete-order'>Delete Order</h2>
+<div class="endpoint">
+    <div>
+        <div class="method get">DELETE</div>
+        <div class="path">api/orders/{id}</div>
+    </div>
+</div>
+<h2 id='about-payment-status'>About Payment Status</h2>
 <div class="endpoint">
     <div>
         <div class="method get">POST</div>
@@ -5615,7 +5668,7 @@ will be marked as &quot;PAID&quot;, if it doesn&#39;t completely &quot;Paritally
 <blockquote>
 <p>Response</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code></code></pre></div><h2 id='get-supported-payments'>Get Supported Payments</h2>
+<div class="highlight"><pre class="highlight json tab-json"><code></code></pre></div><h2 id='get-supported-payments-method'>Get Supported Payments Method</h2>
 <div class="endpoint">
     <div>
         <div class="method get">GET</div>
