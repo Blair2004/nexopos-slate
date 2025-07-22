@@ -66,11 +66,14 @@ NexoPOS uses throughout it's components a unique convention for all it's respons
 
 When performing an action request (POST, PUT, DELETE), you'll always receive a **Status Response** that looks like so:
 
+> Request
+
 ```json
 {
     "status" : "[error|success|info|warnig]",
     "message": "[string]"
 }
+```
 
 Internally, NexoPOS will use "error" for all negative errors, but that behavior can be changed by manually returning a negative response with a different status code (for example "warning"). 
 
