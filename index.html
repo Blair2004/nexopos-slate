@@ -652,6 +652,57 @@
                   <li>
                     <a href="#order-processing-status" class="toc-h2 toc-link" data-title="Order Processing Status">Order Processing Status</a>
                   </li>
+                  <li>
+                    <a href="#get-pos-order" class="toc-h2 toc-link" data-title="Get POS Order">Get POS Order</a>
+                  </li>
+                  <li>
+                    <a href="#get-order-products" class="toc-h2 toc-link" data-title="Get Order Products">Get Order Products</a>
+                  </li>
+                  <li>
+                    <a href="#get-order-refunded-products" class="toc-h2 toc-link" data-title="Get Order Refunded Products">Get Order Refunded Products</a>
+                  </li>
+                  <li>
+                    <a href="#get-order-refunds" class="toc-h2 toc-link" data-title="Get Order Refunds">Get Order Refunds</a>
+                  </li>
+                  <li>
+                    <a href="#get-order-payments" class="toc-h2 toc-link" data-title="Get Order Payments">Get Order Payments</a>
+                  </li>
+                  <li>
+                    <a href="#get-order-instalments" class="toc-h2 toc-link" data-title="Get Order Instalments">Get Order Instalments</a>
+                  </li>
+                  <li>
+                    <a href="#print-order" class="toc-h2 toc-link" data-title="Print Order">Print Order</a>
+                  </li>
+                  <li>
+                    <a href="#add-product-to-order" class="toc-h2 toc-link" data-title="Add Product to Order">Add Product to Order</a>
+                  </li>
+                  <li>
+                    <a href="#void-order" class="toc-h2 toc-link" data-title="Void Order">Void Order</a>
+                  </li>
+                  <li>
+                    <a href="#order-delivery-status" class="toc-h2 toc-link" data-title="Order Delivery Status">Order Delivery Status</a>
+                  </li>
+                  <li>
+                    <a href="#add-payment-to-order" class="toc-h2 toc-link" data-title="Add Payment to Order">Add Payment to Order</a>
+                  </li>
+                  <li>
+                    <a href="#make-order-refund" class="toc-h2 toc-link" data-title="Make Order Refund">Make Order Refund</a>
+                  </li>
+                  <li>
+                    <a href="#create-order-instalment" class="toc-h2 toc-link" data-title="Create Order Instalment">Create Order Instalment</a>
+                  </li>
+                  <li>
+                    <a href="#pay-instalment" class="toc-h2 toc-link" data-title="Pay Instalment">Pay Instalment</a>
+                  </li>
+                  <li>
+                    <a href="#update-instalment" class="toc-h2 toc-link" data-title="Update Instalment">Update Instalment</a>
+                  </li>
+                  <li>
+                    <a href="#delete-instalment" class="toc-h2 toc-link" data-title="Delete Instalment">Delete Instalment</a>
+                  </li>
+                  <li>
+                    <a href="#delete-order-product" class="toc-h2 toc-link" data-title="Delete Order Product">Delete Order Product</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -4897,7 +4948,7 @@ Note that this method can't be used as way around to disable a module in case yo
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[styring]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -5142,7 +5193,7 @@ Note that this method can't be used as way around to disable a module in case yo
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[styring]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -5539,11 +5590,21 @@ Note that this method can't be used as way around to disable a module in case yo
 </span></code></pre></div><h2 id='delete-order'>Delete Order</h2>
 <div class="endpoint">
     <div>
-        <div class="method get">DELETE</div>
+        <div class="method delete">DELETE</div>
         <div class="path">api/orders/{id}</div>
     </div>
 </div>
-<h2 id='about-payment-status'>About Payment Status</h2>
+
+<p>Deletes a specific order. This endpoint requires the permission <code>nexopos.delete.orders</code>.</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The order has been successfully deleted."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='about-payment-status'>About Payment Status</h2>
 <div class="endpoint">
     <div>
         <div class="method get">POST</div>
@@ -5630,7 +5691,7 @@ will be marked as &quot;PAID&quot;, if it doesn&#39;t completely &quot;Paritally
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[styring]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -5770,6 +5831,608 @@ will be marked as &quot;PAID&quot;, if it doesn&#39;t completely &quot;Paritally
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[success|error]"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='get-pos-order'>Get POS Order</h2>
+<div class="endpoint">
+    <div>
+        <div class="method get">GET</div>
+        <div class="path">api/orders/{id}/pos</div>
+    </div>
+</div>
+
+<p>This endpoint retrieves a specific order for POS operations with all necessary relationships loaded.</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"250722-001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"takeaway"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"process_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not-available"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"delivery_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not-available"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"discount_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"support_instalments"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"discount_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_without_tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_with_tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_coupons"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_cogs"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tax_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"products_tax_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.924137931</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tax_group_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tax_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tendered"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"change"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"final_payment_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_instalments"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">193</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"note_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"register_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"voidance_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"driver_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-22 00:21:27"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-22 00:21:27"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='get-order-products'>Get Order Products</h2>
+<div class="endpoint">
+    <div>
+        <div class="method get">GET</div>
+        <div class="path">api/orders/{id}/products</div>
+    </div>
+</div>
+
+<p>Retrieves all products associated with a specific order.</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Twin Comforter Sets"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"unit_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piece"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"normal"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"unit_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"unit_quantity_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"procurement_product_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"tax_group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"tax_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inclusive"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sold"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"return_observations"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"return_condition"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"discount_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percentage"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"discount_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"price_with_tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"price_without_tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">74.5259</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"wholesale_tax_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sale_tax_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"tax_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.9241</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_price_with_tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_price_without_tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">74.5259</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_purchase_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h2 id='get-order-refunded-products'>Get Order Refunded Products</h2>
+<div class="endpoint">
+    <div>
+        <div class="method get">GET</div>
+        <div class="path">api/orders/{order}/products/refunded</div>
+    </div>
+</div>
+
+<p>Retrieves all refunded products for a specific order.</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"order_refund_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"order_product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"unit_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"condition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"damaged"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product was damaged during delivery"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Twin Comforter Sets"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tax_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inclusive"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tax_group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"unit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piece"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"piece"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h2 id='get-order-refunds'>Get Order Refunds</h2>
+<div class="endpoint">
+    <div>
+        <div class="method get">GET</div>
+        <div class="path">api/orders/{order}/refunds</div>
+    </div>
+</div>
+
+<p>Retrieves all refunds for a specific order.</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash-payment"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"tax_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.9241</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h2 id='get-order-payments'>Get Order Payments</h2>
+<div class="endpoint">
+    <div>
+        <div class="method get">GET</div>
+        <div class="path">api/orders/{id}/payments</div>
+    </div>
+</div>
+
+<p>Retrieves all payments made for a specific order.</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash-payment"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h2 id='get-order-instalments'>Get Order Instalments</h2>
+<div class="endpoint">
+    <div>
+        <div class="method get">GET</div>
+        <div class="path">api/orders/{order}/instalments</div>
+    </div>
+</div>
+
+<p>Retrieves all instalments for a specific order. This endpoint requires the permission <code>nexopos.read.orders-instalments</code>.</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.225</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"paid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-21"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.225</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"paid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-09-21"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h2 id='print-order'>Print Order</h2>
+<div class="endpoint">
+    <div>
+        <div class="method get">GET</div>
+        <div class="path">api/orders/{order}/print/{doc?}</div>
+    </div>
+</div>
+
+<p>Dispatches a printing event for the specified order. The <code>doc</code> parameter is optional and defaults to &quot;receipt&quot;. This endpoint doesn&#39;t return the actual document content but triggers the printing system.</p>
+
+<p><strong>Parameters:</strong>
+- <code>doc</code> (optional): The document type to print. Common values are &quot;receipt&quot;, &quot;invoice&quot;, &quot;refund&quot;</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The printing event has been successfully dispatched."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='add-product-to-order'>Add Product to Order</h2>
+<div class="endpoint">
+    <div>
+        <div class="method post">POST</div>
+        <div class="path">api/orders/{id}/products</div>
+    </div>
+</div>
+
+<p>Adds products to an existing order.</p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Another Product"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"discount_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percentage"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"discount_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"product_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tax_group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tax_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inclusive"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tax_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unit_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.00</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"price_with_tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.00</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"price_without_tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">41.50</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unit_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piece"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.00</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_price_without_tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">41.50</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_price_with_tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.00</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"normal"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unit_quantity_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_tax_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.5</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The products have been successfully added to the order."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">136.45</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_products"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='void-order'>Void Order</h2>
+<div class="endpoint">
+    <div>
+        <div class="method post">POST</div>
+        <div class="path">api/orders/{order}/void</div>
+    </div>
+</div>
+
+<p>Voids an order. This action requires the permission <code>nexopos.void.orders</code> and marks the order as voided, typically reversing inventory changes.</p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer requested cancellation"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The order has been successfully voided."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='order-delivery-status'>Order Delivery Status</h2>
+<div class="endpoint">
+    <div>
+        <div class="method post">POST</div>
+        <div class="path">api/orders/{order}/delivery</div>
+    </div>
+</div>
+
+<p>Changes the delivery status of an order. This endpoint requires the permission <code>nexopos.update.orders</code>.</p>
+
+<p><strong>Supported delivery status:</strong>
+- pending
+- ongoing<br>
+- delivered
+- failed</p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"delivery_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delivered"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The order delivery status has been successfully updated."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='add-payment-to-order'>Add Payment to Order</h2>
+<div class="endpoint">
+    <div>
+        <div class="method post">POST</div>
+        <div class="path">api/orders/{order}/payments</div>
+    </div>
+</div>
+
+<p>Adds a payment to an existing order. This endpoint requires the permission <code>nexopos.make-payment.orders</code>.</p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash-payment"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.00</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"register_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The payment has been successfully submitted."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.00</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash-payment"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tendered"</span><span class="p">:</span><span class="w"> </span><span class="mf">136.45</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"change"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='make-order-refund'>Make Order Refund</h2>
+<div class="endpoint">
+    <div>
+        <div class="method post">POST</div>
+        <div class="path">api/orders/{order}/refund</div>
+    </div>
+</div>
+
+<p>Creates a refund for an order. This endpoint requires the permission <code>nexopos.refund.orders</code>.</p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash-payment"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"order_product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"condition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"damaged"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product was damaged during delivery"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The refund has been successfully processed."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"refund"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash-payment"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tax_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.9241</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='create-order-instalment'>Create Order Instalment</h2>
+<div class="endpoint">
+    <div>
+        <div class="method post">POST</div>
+        <div class="path">api/orders/{order}/instalments</div>
+    </div>
+</div>
+
+<p>Creates an instalment for an order. This endpoint requires the permission <code>nexopos.create.orders-instalments</code>.</p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"instalment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.225</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-21"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The instalment has been successfully created."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"instalment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.225</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"paid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-21"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='pay-instalment'>Pay Instalment</h2>
+<div class="endpoint">
+    <div>
+        <div class="method post">POST</div>
+        <div class="path">api/orders/{order}/instalments/{instalment}/pay</div>
+    </div>
+</div>
+
+<p>Marks an instalment as paid. This endpoint requires the permission <code>nexopos.update.orders-instalments</code>.</p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"payment_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash-payment"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The instalment has been successfully marked as paid."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"instalment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.225</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"paid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-21"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='update-instalment'>Update Instalment</h2>
+<div class="endpoint">
+    <div>
+        <div class="method put">PUT</div>
+        <div class="path">api/orders/{order}/instalments/{instalment}</div>
+    </div>
+</div>
+
+<p>Updates an existing instalment. This endpoint requires the permission <code>nexopos.update.orders-instalments</code>.</p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"instalment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.00</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-09-21"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The instalment has been successfully updated."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"instalment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.00</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"paid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-09-21"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:28.000000Z"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='delete-instalment'>Delete Instalment</h2>
+<div class="endpoint">
+    <div>
+        <div class="method delete">DELETE</div>
+        <div class="path">api/orders/{order}/instalments/{instalment}</div>
+    </div>
+</div>
+
+<p>Deletes an instalment from an order. This endpoint requires the permission <code>nexopos.delete.orders-instalments</code>.</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The instalment has been successfully deleted."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='delete-order-product'>Delete Order Product</h2>
+<div class="endpoint">
+    <div>
+        <div class="method delete">DELETE</div>
+        <div class="path">api/orders/{id}/products/{product_id}</div>
+    </div>
+</div>
+
+<p>Removes a specific product from an order.</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The product has been successfully removed from the order."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.00</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_products"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
       </div>
