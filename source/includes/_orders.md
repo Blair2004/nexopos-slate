@@ -2,15 +2,86 @@
 
 ## Retrieve Orders
 
+To retreive all orders, the endpoint will be used without the identifier of the order. The result will then be an Array of orders. When an identifier is provided, a single entry of the array will be provided if that exists.
+
 <div class="endpoint">
     <div>
         <div class="method get">GET</div>
-        <div class="path">api/orders</div>
+        <div class="path">api/orders/{id?}</div>
     </div>
 </div>
 
 ```json
-[]
+[
+  {
+      "id": 1,
+      "description": null,
+      "code": "250722-001",
+      "title": null,
+      "type": "takeaway",
+      "payment_status": "paid",
+      "process_status": "not-available",
+      "delivery_status": "not-available",
+      "discount": 0,
+      "discount_type": null,
+      "support_instalments": true,
+      "discount_percentage": 0,
+      "shipping": 0,
+      "shipping_rate": 0,
+      "shipping_type": null,
+      "total_without_tax": 86.45,
+      "subtotal": 86.45,
+      "total_with_tax": 86.45,
+      "total_coupons": 0,
+      "total_cogs": 0,
+      "total": 86.45,
+      "tax_value": 0,
+      "products_tax_value": 11.924137931,
+      "tax_group_id": null,
+      "tax_type": "0",
+      "tendered": 86.45,
+      "change": 0,
+      "final_payment_date": null,
+      "total_instalments": 0,
+      "customer_id": 193,
+      "note": null,
+      "note_visibility": "hidden",
+      "author": 2,
+      "uuid": null,
+      "register_id": null,
+      "voidance_reason": null,
+      "driver_id": null,
+      "created_at": "2025-07-22 00:21:27",
+      "updated_at": "2025-07-22 00:21:27",
+      "customer": {
+          "id": 193,
+          "username": "tressa80",
+          "active": 1,
+          "author": 156,
+          "email": "email@example.com",
+          "password": "$2y$10$FE1x.423LcCK0lkm1sfWYu/hzZd/pnpQDNPeGeF08Obq9sHskyvG6",
+          "group_id": 10,
+          "first_name": "Constantin",
+          "last_name": "Weissnat",
+          "gender": "",
+          "phone": "726.869.5653",
+          "pobox": "71961-8857",
+          "activation_expiration": null,
+          "total_sales_count": 0,
+          "total_sales": 0,
+          "birth_date": null,
+          "purchases_amount": 0,
+          "owed_amount": 0,
+          "credit_limit_amount": 0,
+          "account_amount": 0,
+          "activation_token": null,
+          "remember_token": null,
+          "created_at": "2025-07-21T23:21:04.000000Z",
+          "updated_at": "2025-07-21T23:21:04.000000Z",
+          "origin_store_id": null
+      }
+  }
+]
 ```
 
 This endpoing will list all products available. However, it won't include any other related table (for the sake of performance).
@@ -259,7 +330,7 @@ This will create a paid order. The following payload is an example to create a p
 }
 ```
 
-## Create Unpaid Order
+## About Payment Status
 
 <div class="endpoint">
     <div>
@@ -268,9 +339,21 @@ This will create a paid order. The following payload is an example to create a p
     </div>
 </div>
 
-The structure to submit an unpaid order is quite similar to the paid order. However, we'll make sure to omit providing a payment. Note that this might throw an error if unpaid order is disabled on the settings. You'll make sure to display a proper message (using the message returned by the server), for further instance to the user.
+While submitting an order, depending on the current payment status, NexoPOS will determine the order type. If an order has a payment that covers the order total, the order
+will be marked as "PAID", if it doesn't completely "Paritally Paid" (if settings allows it) if not paid it can either be "Unpaid" or "Hold". The difference between a "Hold" order and an "Unpaid", the first doesn't perform any change on the inventory, while the latest does.
 
-Here is an example.
+### Support Payment Status
+Here is the list of supported payment status.
+
+- paid
+- unpaid
+- partially_paid
+- hold
+- refunded
+- partially_refunded
+- voided
+
+When an order has no payment, NexoPOS allows providing a custom payment status ("hold" or "unpaid"). For other payment status such as "partially_paid", "refunded" they can only be set after an account that updates the status automatically.
 
 ```json
 {
@@ -375,3 +458,111 @@ Here is an example.
 ```
 
 > Response
+
+```json
+```
+
+## Get Supported Payments
+
+<div class="endpoint">
+    <div>
+        <div class="method get">GET</div>
+        <div class="path">api/orders/payments</div>
+    </div>
+</div>
+
+This provide a list of payments that are available on the system.
+
+> Response
+
+```json
+[
+    {
+        "label": "Select Payment",
+        "name": "identifier",
+        "validation": "required",
+        "options": [
+            {
+                "id": 1,
+                "label": "Cash",
+                "identifier": "cash-payment",
+                "priority": 0,
+                "description": null,
+                "author": 2,
+                "active": 1,
+                "readonly": 1,
+                "created_at": "2025-07-21T23:20:57.000000Z",
+                "updated_at": "2025-07-21T23:20:57.000000Z",
+                "value": "cash-payment"
+            },
+            {
+                "id": 2,
+                "label": "Bank Payment",
+                "identifier": "bank-payment",
+                "priority": 0,
+                "description": null,
+                "author": 2,
+                "active": 1,
+                "readonly": 1,
+                "created_at": "2025-07-21T23:20:57.000000Z",
+                "updated_at": "2025-07-21T23:20:57.000000Z",
+                "value": "bank-payment"
+            },
+            {
+                "id": 3,
+                "label": "Customer Account",
+                "identifier": "account-payment",
+                "priority": 0,
+                "description": null,
+                "author": 2,
+                "active": 1,
+                "readonly": 1,
+                "created_at": "2025-07-21T23:20:57.000000Z",
+                "updated_at": "2025-07-21T23:20:57.000000Z",
+                "value": "account-payment"
+            }
+        ],
+        "value": "",
+        "description": "choose the payment type.",
+        "disabled": false,
+        "type": "select",
+        "component": "",
+        "props": [],
+        "refresh": false,
+        "errors": [],
+        "show": null
+    }
+]
+```
+## Order Processing Status
+
+<div class="endpoint">
+    <div>
+        <div class="method get">POST</div>
+        <div class="path">api/orders/{id}/processing</div>
+    </div>
+</div>
+
+To perform a processing change on a specific order. This requires the order to be created first as it identifier is used. The supported status are: 
+
+- pending
+- ongoing
+- ready
+- failed
+
+> Request
+
+```json
+{
+  "process_status": "[status]"
+}
+```
+
+> Resposne
+
+```json
+{
+  "status": "[success|error]",
+  "message": "[string]"
+}
+```
