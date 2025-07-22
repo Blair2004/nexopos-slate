@@ -815,6 +815,15 @@ If the endpoint "api/orders/{id}/{attribute?}" allows to retrieve a specific ord
 }
 ```
 
+## Delete Order
+
+<div class="endpoint">
+    <div>
+        <div class="method get">DELETE</div>
+        <div class="path">api/orders/{id}</div>
+    </div>
+</div>
+
 ## About Payment Status
 
 <div class="endpoint">
@@ -947,7 +956,7 @@ When an order has no payment, NexoPOS allows providing a custom payment status (
 ```json
 ```
 
-## Get Supported Payments
+## Get Supported Payments Method
 
 <div class="endpoint">
     <div>

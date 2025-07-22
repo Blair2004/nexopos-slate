@@ -57,3 +57,53 @@ authenticate();
 ```
 
 NexoPOS token doesn't expires until they are manually revoked by the user. This behavior is likely to change in the future, therefore you should implement mecanism for testing authentication token.
+
+## About Response
+
+NexoPOS uses throughout it's components a unique convention for all it's responses. In a traditional way, we have positive response and negative response. A possitive response has as HTTP code status 200 and a negative has 40X (depending on the error). 
+
+### Action Request
+
+When performing an action request (POST, PUT, DELETE), you'll always receive a **Status Response** that looks like so:
+
+```json
+{
+    "status" : "[error|success|info|warnig]",
+    "message": "[string]"
+}
+
+Internally, NexoPOS will use "error" for all negative errors, but that behavior can be changed by manually returning a negative response with a different status code (for example "warning"). 
+
+Additionnally, a response might include data that can be used by the frontend. In the case of an order, customer, product (and much more) creation, the **Status Response** by include "data" like so (illustrative output):
+
+```json
+{
+    "status": "success",
+    "message": "The product has been created",
+    "data": {
+        "product": {
+            "id": 1,
+            "name": "Product"
+        }
+    }
+}
+```
+
+While not common, a negative error can also include the "data".
+
+### Listing Request
+
+A listing request is any typicall "GET" request. Depending on the resource that is fetched, you'll have different response. If you're fetching an order, you'll receive an object of the order, if you're fetching customers, you'll receive an array of customer orders and finally, if you're fetching a CRUD resource, you'll receive a CRUD object.
+
+> Response (Illustration for Customers)
+
+```json
+[
+    {
+        "id": 1,
+        "first_name": "Blair",
+        "last_name": "Jersyer",
+        "email": "contact@nexopos.com",
+    }
+]
+```
