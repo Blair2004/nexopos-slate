@@ -632,7 +632,13 @@
                     <a href="#create-order" class="toc-h2 toc-link" data-title="Create Order">Create Order</a>
                   </li>
                   <li>
-                    <a href="#create-unpaid-order" class="toc-h2 toc-link" data-title="Create Unpaid Order">Create Unpaid Order</a>
+                    <a href="#about-payment-status" class="toc-h2 toc-link" data-title="About Payment Status">About Payment Status</a>
+                  </li>
+                  <li>
+                    <a href="#get-supported-payments" class="toc-h2 toc-link" data-title="Get Supported Payments">Get Supported Payments</a>
+                  </li>
+                  <li>
+                    <a href="#order-processing-status" class="toc-h2 toc-link" data-title="Order Processing Status">Order Processing Status</a>
                   </li>
               </ul>
           </li>
@@ -4674,13 +4680,84 @@ Note that this method can't be used as way around to disable a module in case yo
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-27T09:42:33.000000Z"</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='orders'>Orders</h1><h2 id='retrieve-orders'>Retrieve Orders</h2>
+<p>To retreive all orders, the endpoint will be used without the identifier of the order. The result will then be an Array of orders. When an identifier is provided, a single entry of the array will be provided if that exists.</p>
+
 <div class="endpoint">
     <div>
         <div class="method get">GET</div>
-        <div class="path">api/orders</div>
+        <div class="path">api/orders/{id?}</div>
     </div>
 </div>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[]</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"250722-001"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"takeaway"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"process_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not-available"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"delivery_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not-available"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"discount_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"support_instalments"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"discount_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"shipping_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"shipping_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"total_without_tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"total_with_tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"total_coupons"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"total_cogs"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tax_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"products_tax_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.924137931</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tax_group_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tax_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tendered"</span><span class="p">:</span><span class="w"> </span><span class="mf">86.45</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"change"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"final_payment_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"total_instalments"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">193</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"note_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"register_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"voidance_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"driver_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-22 00:21:27"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-22 00:21:27"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">193</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tressa80"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">156</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$2y$10$FE1x.423LcCK0lkm1sfWYu/hzZd/pnpQDNPeGeF08Obq9sHskyvG6"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Constantin"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weissnat"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"726.869.5653"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"pobox"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71961-8857"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"activation_expiration"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"total_sales_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"total_sales"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"birth_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"purchases_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"owed_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"credit_limit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"account_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"activation_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"remember_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:04.000000Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:21:04.000000Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"origin_store_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>This endpoing will list all products available. However, it won&#39;t include any other related table (for the sake of performance).</p>
 <h2 id='create-order'>Create Order</h2>
@@ -4925,7 +5002,7 @@ Note that this method can't be used as way around to disable a module in case yo
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='create-unpaid-order'>Create Unpaid Order</h2>
+</span></code></pre></div><h2 id='about-payment-status'>About Payment Status</h2>
 <div class="endpoint">
     <div>
         <div class="method get">POST</div>
@@ -4933,9 +5010,22 @@ Note that this method can't be used as way around to disable a module in case yo
     </div>
 </div>
 
-<p>The structure to submit an unpaid order is quite similar to the paid order. However, we&#39;ll make sure to omit providing a payment. Note that this might throw an error if unpaid order is disabled on the settings. You&#39;ll make sure to display a proper message (using the message returned by the server), for further instance to the user.</p>
+<p>While submitting an order, depending on the current payment status, NexoPOS will determine the order type. If an order has a payment that covers the order total, the order
+will be marked as &quot;PAID&quot;, if it doesn&#39;t completely &quot;Paritally Paid&quot; (if settings allows it) if not paid it can either be &quot;Unpaid&quot; or &quot;Hold&quot;. The difference between a &quot;Hold&quot; order and an &quot;Unpaid&quot;, the first doesn&#39;t perform any change on the inventory, while the latest does.</p>
+<h3 id='support-payment-status'>Support Payment Status</h3>
+<p>Here is the list of supported payment status.</p>
 
-<p>Here is an example.</p>
+<ul>
+<li>paid</li>
+<li>unpaid</li>
+<li>partially_paid</li>
+<li>hold</li>
+<li>refunded</li>
+<li>partially_refunded</li>
+<li>voided</li>
+</ul>
+
+<p>When an order has no payment, NexoPOS allows providing a custom payment status (&quot;hold&quot; or &quot;unpaid&quot;). For other payment status such as &quot;partially_paid&quot;, &quot;refunded&quot; they can only be set after an account that updates the status automatically.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"discount_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -5039,7 +5129,108 @@ Note that this method can't be used as way around to disable a module in case yo
 <blockquote>
 <p>Response</p>
 </blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code></code></pre></div><h2 id='get-supported-payments'>Get Supported Payments</h2>
+<div class="endpoint">
+    <div>
+        <div class="method get">GET</div>
+        <div class="path">api/orders/payments</div>
+    </div>
+</div>
 
+<p>This provide a list of payments that are available on the system.</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Select Payment"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"identifier"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"validation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"required"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash-payment"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"readonly"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:20:57.000000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:20:57.000000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash-payment"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bank Payment"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank-payment"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"readonly"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:20:57.000000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:20:57.000000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank-payment"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer Account"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account-payment"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"readonly"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:20:57.000000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-21T23:20:57.000000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account-payment"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"choose the payment type."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"select"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"component"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"props"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"refresh"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"show"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h2 id='order-processing-status'>Order Processing Status</h2>
+<div class="endpoint">
+    <div>
+        <div class="method get">POST</div>
+        <div class="path">api/orders/{id}/processing</div>
+    </div>
+</div>
+
+<p>To perform a processing change on a specific order. This requires the order to be created first as it identifier is used. The supported status are: </p>
+
+<ul>
+<li>pending</li>
+<li>ongoing</li>
+<li>ready</li>
+<li>failed</li>
+</ul>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"process_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[status]"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Resposne</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[success|error]"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
