@@ -717,19 +717,19 @@ The generated token will allow any app using it to behave as the user who genera
 <p>NexoPOS token doesn&#39;t expires until they are manually revoked by the user. This behavior is likely to change in the future, therefore you should implement mecanism for testing authentication token.</p>
 <h2 id='about-response'>About Response</h2>
 <p>NexoPOS uses throughout it&#39;s components a unique convention for all it&#39;s responses. In a traditional way, we have positive response and negative response. A possitive response has as HTTP code status 200 and a negative has 40X (depending on the error). </p>
-<h3 id='action-request'>Action Request</h3>
+<h3 id='action-request'>Action Request</h3><h4 id='plain-response'>Plain Response</h4>
 <p>When performing an action request (POST, PUT, DELETE), you&#39;ll always receive a <strong>Status Response</strong> that looks like so:</p>
 
 <blockquote>
-<p>Request</p>
+<p>Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[error|success|info|warnig]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[error|success|info|warning]"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Internally, NexoPOS will use &quot;error&quot; for all negative errors, but that behavior can be changed by manually returning a negative response with a different status code (for example &quot;warning&quot;). </p>
-
+<h4 id='response-with-data'>Response With Data</h4>
 <p>Additionnally, a response might include data that can be used by the frontend. In the case of an order, customer, product (and much more) creation, the <strong>Status Response</strong> by include &quot;data&quot; like so (illustrative output):</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
