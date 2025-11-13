@@ -182,7 +182,7 @@ We'll use `ns.user-profile` to retrieve the form in use on the user profile sect
       ]
     },
     "billing": {
-      "label": "Biling",
+      "label": "Billing",
       "fields": [
         {
           "type": "text",

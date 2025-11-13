@@ -1,6 +1,6 @@
 # User
 
-The user endpoint give an overview of the logged user. With this you'll be able to retreive the logged user email, id and more (The password is encrypted).
+The user endpoint give an overview of the logged user. With this you'll be able to retrieve the logged user email, id and more (The password is encrypted).
 
 <div class="endpoint">
     <div>

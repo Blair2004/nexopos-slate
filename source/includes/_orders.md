@@ -2,7 +2,7 @@
 
 ## Retrieve Orders
 
-To retreive all orders, the endpoint will be used without the identifier of the order. The result will then be an Array of orders. When an identifier is provided, a single entry of the array will be provided if that exists.
+To retrieve all orders, the endpoint will be used without the identifier of the order. The result will then be an Array of orders. When an identifier is provided, a single entry of the array will be provided if that exists.
 
 <div class="endpoint">
     <div>
@@ -84,7 +84,7 @@ To retreive all orders, the endpoint will be used without the identifier of the 
 ]
 ```
 
-This endpoing will list all products available. However, it won't include any other related table (for the sake of performance).
+This endpoint will list all products available. However, it won't include any other related table (for the sake of performance).
 
 ## Create Order
 
@@ -471,7 +471,7 @@ Hold can be modified. The payload for updating an order is similar to the payloa
     </div>
 </div>
 
-If the endpoint "api/orders/{id}/{attribute?}" allows to retrieve a specific order, this endpoint will retreive an order with all it's linked attributes. By default, NexoPOS assumes "{id}" is a number ("id"). However when providing "{attribute}", you can change it to be the order code with "code". 
+If the endpoint "api/orders/{id}/{attribute?}" allows to retrieve a specific order, this endpoint will retrieve an order with all it's linked attributes. By default, NexoPOS assumes "{id}" is a number ("id"). However when providing "{attribute}", you can change it to be the order code with "code". 
 
 > Response
 
@@ -845,7 +845,7 @@ Deletes a specific order. This endpoint requires the permission `nexopos.delete.
 </div>
 
 While submitting an order, depending on the current payment status, NexoPOS will determine the order type. If an order has a payment that covers the order total, the order
-will be marked as "PAID", if it doesn't completely "Paritally Paid" (if settings allows it) if not paid it can either be "Unpaid" or "Hold". The difference between a "Hold" order and an "Unpaid", the first doesn't perform any change on the inventory, while the latest does.
+will be marked as "PAID", if it doesn't completely "Partially Paid" (if settings allows it) if not paid it can either be "Unpaid" or "Hold". The difference between a "Hold" order and an "Unpaid", the first doesn't perform any change on the inventory, while the latest does.
 
 ### Support Payment Status
 Here is the list of supported payment status.

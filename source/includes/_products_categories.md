@@ -112,7 +112,7 @@ Use this endpoint to retrieve all defined product categories.
 
 ## Update Category
 
-Use this endpoint to update an existing category using `{category_id}`, that needs to be replaced with the actual ID of the category you would like to udpate.
+Use this endpoint to update an existing category using `{category_id}`, that needs to be replaced with the actual ID of the category you would like to update.
 
 <div class="endpoint">
     <div>
@@ -180,7 +180,7 @@ Use this endpoint to delete an existing category. Note that you might encounter 
 
 ## Category's Products
 
-Use this endpoint to retreive all the product that are assigned to a category. You'll replace `{category_id}` by the ID of the category you would like to get the products.
+Use this endpoint to retrieve all the product that are assigned to a category. You'll replace `{category_id}` by the ID of the category you would like to get the products.
 
 <div class="endpoint">
     <div>

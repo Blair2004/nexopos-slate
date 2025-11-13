@@ -139,7 +139,7 @@ Use this endpoint to update the customer. You'll replace `{customer_id}` with th
 }
 ```
 
-## Retreive Single Customer
+## Retrieve Single Customer
 
 Use this endpoint to details for a specific customer. You'll make sure to replace `{customer_id}` with the ID of the customer for which you would like to get information.
 
@@ -208,9 +208,9 @@ Use this endpoint to delete a specific customer. Note that this might fail if th
     </div>
 </div>
 
-## Retreive Customers
+## Retrieve Customers
 
-This endpoint will retreive all registered customers. The output is not paginated, you might therefore consider using the CRUD approach.
+This endpoint will retrieve all registered customers. The output is not paginated, you might therefore consider using the CRUD approach.
 
 <div class="endpoint">
     <div>
@@ -324,9 +324,9 @@ This endpoint will give a list of the customers that has recently been active.
 ]
 ```
 
-## Customer Latest Orders
+## Customer's Latest Orders
 
-Use this endpoint to retreive latest orders placed by a specific customer.
+Use this endpoint to retrieve latest orders placed by a specific customer.
 
 <div class="endpoint">
     <div>
@@ -385,9 +385,9 @@ Use this endpoint to retreive latest orders placed by a specific customer.
 ]
 ```
 
-## Customer's Address
+## Customer's Addresses
 
-Use this endpoint to retreive the billing and shipping address for a specific customers.
+Use this endpoint to retrieve the billing and shipping address for a specific customers.
 
 <div class="endpoint">
     <div>
@@ -546,8 +546,8 @@ Use this endpoint to load customer coupon.
 
 ## Customer's Reward System
 
-Use this endpoint to retreive all the reward system the customer is assigned to. Note that reward system must first be assigned to the customers group.
-You'll replace `{customer_id}` with the ID of the customer for which you woud like to get the rewards. The response is a CRUD Type reponse, which is paginated.
+Use this endpoint to retrieve all the reward system the customer is assigned to. Note that reward system must first be assigned to the customers group.
+You'll replace `{customer_id}` with the ID of the customer for which you would like to get the rewards. The response is a CRUD Type response, which is paginated.
 
 <div class="endpoint">
     <div>
@@ -605,7 +605,7 @@ You'll replace `{customer_id}` with the ID of the customer for which you woud li
 
 ## Customer's Account History
 
-Use this endpoint to retrieve an history of all the transactions that has occured on the customer wallet account. Replace `{customer_id}` with the ID of the customer for which you would like to retreive the account history.
+Use this endpoint to retrieve an history of all the transactions that has occurred on the customer wallet account. Replace `{customer_id}` with the ID of the customer for which you would like to retrieve the account history.
 Note that the response is a CRUD Type response, this means it's paginated.
 
 <div class="endpoint">

@@ -6,12 +6,12 @@ For further instruction how how to interact with the Crud API, [refer to the doc
 
 
 <aside class="notice">
-On this part of the documentation, `{namespace}` refer the identifier of a CRUD instance. You'll then use the identifier of the CRUd you would like to retrieve entreis. For this documentation, we'll use the identifier `ns.products` which is for the `App\Crud\ProductCrud` component.
+On this part of the documentation, `{namespace}` refer the identifier of a CRUD instance. You'll then use the identifier of the CRUd you would like to retrieve entries. For this documentation, we'll use the identifier `ns.products` which is for the `App\Crud\ProductCrud` component.
 </aside>
 
 ## Get Table Entries
 
-Use this endpoint to retreive the configuration of a table. By table we mean that UI component that is used to displays a list of entries.
+Use this endpoint to retrieve the configuration of a table. By table we mean that UI component that is used to display a list of entries.
 
 <div class="endpoint">
     <div>
@@ -238,7 +238,7 @@ Use this endpoint to retrieve the list of available columns.
 
 ## Get Table Configuration
 
-This will retreive the current table configuration of a crud component.
+This will retrieve the current table configuration of a crud component.
 
 <div class="endpoint">
     <div>

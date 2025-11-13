@@ -111,7 +111,7 @@ Use this endpoint to delete a specific customer group. Note this request might f
 
 ## Customer Group's Customers
 
-Use this endpoint to list all cutomers that are assigned to a specific customer group. Replace `{group_id}` with the ID of the group for which you would like to retrieve the customers.
+Use this endpoint to list all customers that are assigned to a specific customer group. Replace `{group_id}` with the ID of the group for which you would like to retrieve the customers.
 
 <div class="endpoint">
     <div>
@@ -157,7 +157,7 @@ Use this endpoint to list all cutomers that are assigned to a specific customer 
 
 ## Transfers Customers
 
-Use this endpoint to move customers from one group to another group. Where `from` is the source group id and `to` is the destination group id. You can specific the IDs (in an array) that are targeted with `ids` or use a wilcard "*" to transfers all customers.
+Use this endpoint to move customers from one group to another group. Where `from` is the source group id and `to` is the destination group id. You can specific the IDs (in an array) that are targeted with `ids` or use a wildcard "*" to transfers all customers.
 
 <div class="endpoint">
     <div>

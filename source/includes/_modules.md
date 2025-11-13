@@ -99,7 +99,7 @@ Use this endpoint to receive a list of available modules.
 ```
 
 ## Enable Module
-This endpoint shoudl be used to enable a module using it's identifier. You'll replace `{identifier}` with the module's identifier you want to enable. 
+This endpoint should be used to enable a module using it's identifier. You'll replace `{identifier}` with the module's identifier you want to enable. 
 
 <aside class="notice">
 Performing this will not execute the module migration if they are needed. By accessing NexoPOS, the migration will be performed.
@@ -188,7 +188,7 @@ Performing this will not execute the module migration if they are needed. By acc
 
 ## Disable Module
 
-This endpoint is used to disable a module using it's identifier. You'll replace `{identifier}` by the module's identifer you want to disable. 
+This endpoint is used to disable a module using it's identifier. You'll replace `{identifier}` by the module's identifier you want to disable. 
 
 <aside class="notice">
 Note that this method can't be used as way around to disable a module in case you're not able to access the dashboard.

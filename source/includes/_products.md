@@ -42,7 +42,7 @@
 ]
 ```
 
-This endpoing will list all products available. However, it won't include any other related table (for the sake of performance).
+This endpoint will list all products available. However, it won't include any other related table (for the sake of performance).
 
 ## Create Product
 
@@ -124,8 +124,8 @@ Will create a product using the provided data structure.
 }
 ```
 
-## Retreive Product
-This wil retreive a product using it's ID. You'll make sure to replace "{product_id}" with the actual product ID.
+## Retrieve Product
+This will retrieve a product using it's ID. You'll make sure to replace "{product_id}" with the actual product ID.
 
 <div class="endpoint">
     <div>
@@ -269,7 +269,7 @@ You'll use this to delete a product with all it's related tables. This endpoint 
 
 ## Get Product History
 
-This endpoint will provide a full list of stock movement that has occured on a specific product. You'll replace `{product_id}` with the ID of the product for which you would like to get the history. Note that this is not paginated, for a product having a very long history, you might consider increasig the execution time or refer to the CRUD approach which is paginated.
+This endpoint will provide a full list of stock movement that has occurred on a specific product. You'll replace `{product_id}` with the ID of the product for which you would like to get the history. Note that this is not paginated, for a product having a very long history, you might consider increasing the execution time or refer to the CRUD approach which is paginated.
 
 <div class="endpoint">
     <div>
@@ -321,7 +321,7 @@ This endpoint will provide a full list of stock movement that has occured on a s
 
 ## Get Product Variations
 
-While this feature is not yet fully used on NexoPOS as a single variation is enforced for now, you can use it in the future to retreive products variations.
+While this feature is not yet fully used on NexoPOS as a single variation is enforced for now, you can use it in the future to retrieve products variations.
 
 <div class="endpoint">
     <div>
@@ -383,7 +383,7 @@ Use this to erase the product inventory. This will be used to have a fresh start
 
 ## Product Units
 
-Used to retreive all units attached to a products.
+Used to retrieve all units attached to a products.
 
 <div class="endpoint">
     <div>
@@ -541,7 +541,7 @@ Used to retreive all units attached to a products.
 ```
 
 ## Product Unit Quantity
-You'll use this endpoint to retreive a single product unit quantity. You'll replace "{product_id}" and "{unit_id}" by their relevant values.
+You'll use this endpoint to retrieve a single product unit quantity. You'll replace "{product_id}" and "{unit_id}" by their relevant values.
 
 
 <div class="endpoint">
@@ -590,7 +590,7 @@ You'll use this endpoint to retreive a single product unit quantity. You'll repl
 ```
 
 ## Product Procurements
-Use this endpoint to retreive all purchases that was made for a specific product.
+Use this endpoint to retrieve all purchases that was made for a specific product.
 
 
 <div class="endpoint">
@@ -634,7 +634,7 @@ Use this endpoint to retreive all purchases that was made for a specific product
 ```
 
 ## Product: Barcode Search
-Use this to have perform a strict retreival of product having as barcode the provided term. This endpoint is used on the POS to get product using a Barcode reader. You'll replace "{barcode}" with the barcode you would like to use as search term.
+Use this to have perform a strict retrieval of product having as barcode the provided term. This endpoint is used on the POS to get product using a Barcode reader. You'll replace "{barcode}" with the barcode you would like to use as search term.
 
 <div class="endpoint">
     <div>
@@ -967,7 +967,7 @@ This endpoint should be used to perform a unit conversion for a specific product
 ```
 
 ## Delete Unit Quantity
-Use this to delete a unit quantity attached to a product. This implies all the inventory assigned to that product using the selected unit, will also be deleted (and can't be retreived). You'll replace "{unit_quantity_id}" with the id you would like to delete.
+Use this to delete a unit quantity attached to a product. This implies all the inventory assigned to that product using the selected unit, will also be deleted (and can't be retrieved). You'll replace "{unit_quantity_id}" with the id you would like to delete.
 
 <div class="endpoint">
     <div>

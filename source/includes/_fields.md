@@ -4,7 +4,7 @@ The Fields endpoint give you access to a structure of defined fields. The way fi
 
 ## Get Fields
 
-Use this endpoint to get the shape of a fields. You can optionnally provide an identifier that will be used by the FieldsService class. For example, this is used to retrieve the login, registration fields etc. We'll use the login fields as an example.
+Use this endpoint to get the shape of a fields. You can optionally provide an identifier that will be used by the FieldsService class. For example, this is used to retrieve the login, registration fields etc. We'll use the login fields as an example.
 
 <div class="endpoint">
     <div>
