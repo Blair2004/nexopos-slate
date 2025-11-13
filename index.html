@@ -378,22 +378,22 @@
                     <a href="#update-customer" class="toc-h2 toc-link" data-title="Update Customer">Update Customer</a>
                   </li>
                   <li>
-                    <a href="#retreive-single-customer" class="toc-h2 toc-link" data-title="Retreive Single Customer">Retreive Single Customer</a>
+                    <a href="#retrieve-single-customer" class="toc-h2 toc-link" data-title="Retrieve Single Customer">Retrieve Single Customer</a>
                   </li>
                   <li>
                     <a href="#delete-customer" class="toc-h2 toc-link" data-title="Delete Customer">Delete Customer</a>
                   </li>
                   <li>
-                    <a href="#retreive-customers" class="toc-h2 toc-link" data-title="Retreive Customers">Retreive Customers</a>
+                    <a href="#retrieve-customers" class="toc-h2 toc-link" data-title="Retrieve Customers">Retrieve Customers</a>
                   </li>
                   <li>
                     <a href="#recently-active-customers" class="toc-h2 toc-link" data-title="Recently Active Customers">Recently Active Customers</a>
                   </li>
                   <li>
-                    <a href="#customer-latest-orders" class="toc-h2 toc-link" data-title="Customer Latest Orders">Customer Latest Orders</a>
+                    <a href="#customer-39-s-latest-orders" class="toc-h2 toc-link" data-title="Customer's Latest Orders">Customer's Latest Orders</a>
                   </li>
                   <li>
-                    <a href="#customer-39-s-address" class="toc-h2 toc-link" data-title="Customer's Address">Customer's Address</a>
+                    <a href="#customer-39-s-addresses" class="toc-h2 toc-link" data-title="Customer's Addresses">Customer's Addresses</a>
                   </li>
                   <li>
                     <a href="#customer-39-s-group" class="toc-h2 toc-link" data-title="Customer's Group">Customer's Group</a>
@@ -553,7 +553,7 @@
                     <a href="#create-product" class="toc-h2 toc-link" data-title="Create Product">Create Product</a>
                   </li>
                   <li>
-                    <a href="#retreive-product" class="toc-h2 toc-link" data-title="Retreive Product">Retreive Product</a>
+                    <a href="#retrieve-product" class="toc-h2 toc-link" data-title="Retrieve Product">Retrieve Product</a>
                   </li>
                   <li>
                     <a href="#update-product" class="toc-h2 toc-link" data-title="Update Product">Update Product</a>
@@ -765,9 +765,9 @@ The generated token will allow any app using it to behave as the user who genera
 
 <span class="nx">authenticate</span><span class="p">();</span>
 </code></pre></div>
-<p>NexoPOS token doesn&#39;t expires until they are manually revoked by the user. This behavior is likely to change in the future, therefore you should implement mecanism for testing authentication token.</p>
+<p>NexoPOS token doesn&#39;t expires until they are manually revoked by the user. This behavior is likely to change in the future, therefore you should implement mechanism for testing authentication token.</p>
 <h2 id='about-response'>About Response</h2>
-<p>NexoPOS uses throughout it&#39;s components a unique convention for all it&#39;s responses. In a traditional way, we have positive response and negative response. A possitive response has as HTTP code status 200 and a negative has 40X (depending on the error). </p>
+<p>NexoPOS uses throughout it&#39;s components a unique convention for all it&#39;s responses. In a traditional way, we have positive response and negative response. A positive response has as HTTP code status 200 and a negative has 40X (depending on the error). </p>
 <h3 id='action-request'>Action Request</h3><h4 id='plain-response'>Plain Response</h4>
 <p>When performing an action request (POST, PUT, DELETE), you&#39;ll always receive a <strong>Status Response</strong> that looks like so:</p>
 
@@ -781,7 +781,7 @@ The generated token will allow any app using it to behave as the user who genera
 </span></code></pre></div>
 <p>Internally, NexoPOS will use &quot;error&quot; for all negative errors, but that behavior can be changed by manually returning a negative response with a different status code (for example &quot;warning&quot;). </p>
 <h4 id='response-with-data'>Response With Data</h4>
-<p>Additionnally, a response might include data that can be used by the frontend. In the case of an order, customer, product (and much more) creation, the <strong>Status Response</strong> by include &quot;data&quot; like so (illustrative output):</p>
+<p>Additionally, a response might include data that can be used by the frontend. In the case of an order, customer, product (and much more) creation, the <strong>Status Response</strong> by include &quot;data&quot; like so (illustrative output):</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The product has been created"</span><span class="p">,</span><span class="w">
@@ -795,7 +795,7 @@ The generated token will allow any app using it to behave as the user who genera
 </span></code></pre></div>
 <p>While not common, a negative error can also include the &quot;data&quot;.</p>
 <h3 id='listing-request'>Listing Request</h3>
-<p>A listing request is any typicall &quot;GET&quot; request. Depending on the resource that is fetched, you&#39;ll have different response. If you&#39;re fetching an order, you&#39;ll receive an object of the order, if you&#39;re fetching customers, you&#39;ll receive an array of customer orders and finally, if you&#39;re fetching a CRUD resource, you&#39;ll receive a CRUD object.</p>
+<p>A listing request is any typical &quot;GET&quot; request. Depending on the resource that is fetched, you&#39;ll have different response. If you&#39;re fetching an order, you&#39;ll receive an object of the order, if you&#39;re fetching customers, you&#39;ll receive an array of customer orders and finally, if you&#39;re fetching a CRUD resource, you&#39;ll receive a CRUD object.</p>
 
 <blockquote>
 <p>Response (Illustration for Customers)</p>
@@ -1270,7 +1270,7 @@ The generated token will allow any app using it to behave as the user who genera
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[success|error]"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='retreive-single-customer'>Retreive Single Customer</h2>
+</span></code></pre></div><h2 id='retrieve-single-customer'>Retrieve Single Customer</h2>
 <p>Use this endpoint to details for a specific customer. You&#39;ll make sure to replace <code>{customer_id}</code> with the ID of the customer for which you would like to get information.</p>
 
 <div class="endpoint">
@@ -1333,8 +1333,8 @@ The generated token will allow any app using it to behave as the user who genera
         <div class="path">api/customers/{customer_id}</div>
     </div>
 </div>
-<h2 id='retreive-customers'>Retreive Customers</h2>
-<p>This endpoint will retreive all registered customers. The output is not paginated, you might therefore consider using the CRUD approach.</p>
+<h2 id='retrieve-customers'>Retrieve Customers</h2>
+<p>This endpoint will retrieve all registered customers. The output is not paginated, you might therefore consider using the CRUD approach.</p>
 
 <div class="endpoint">
     <div>
@@ -1442,8 +1442,8 @@ The generated token will allow any app using it to behave as the user who genera
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h2 id='customer-latest-orders'>Customer Latest Orders</h2>
-<p>Use this endpoint to retreive latest orders placed by a specific customer.</p>
+</span></code></pre></div><h2 id='customer-39-s-latest-orders'>Customer&#39;s Latest Orders</h2>
+<p>Use this endpoint to retrieve latest orders placed by a specific customer.</p>
 
 <div class="endpoint">
     <div>
@@ -1500,8 +1500,8 @@ The generated token will allow any app using it to behave as the user who genera
     </span><span class="nl">"human_delivery_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not Available"</span><span class="w">
   </span><span class="p">},</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h2 id='customer-39-s-address'>Customer&#39;s Address</h2>
-<p>Use this endpoint to retreive the billing and shipping address for a specific customers.</p>
+</span></code></pre></div><h2 id='customer-39-s-addresses'>Customer&#39;s Addresses</h2>
+<p>Use this endpoint to retrieve the billing and shipping address for a specific customers.</p>
 
 <div class="endpoint">
     <div>
@@ -1647,8 +1647,8 @@ The generated token will allow any app using it to behave as the user who genera
   </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='customer-39-s-reward-system'>Customer&#39;s Reward System</h2>
-<p>Use this endpoint to retreive all the reward system the customer is assigned to. Note that reward system must first be assigned to the customers group.
-You&#39;ll replace <code>{customer_id}</code> with the ID of the customer for which you woud like to get the rewards. The response is a CRUD Type reponse, which is paginated.</p>
+<p>Use this endpoint to retrieve all the reward system the customer is assigned to. Note that reward system must first be assigned to the customers group.
+You&#39;ll replace <code>{customer_id}</code> with the ID of the customer for which you would like to get the rewards. The response is a CRUD Type response, which is paginated.</p>
 
 <div class="endpoint">
     <div>
@@ -1703,7 +1703,7 @@ You&#39;ll replace <code>{customer_id}</code> with the ID of the customer for wh
   </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='customer-39-s-account-history'>Customer&#39;s Account History</h2>
-<p>Use this endpoint to retrieve an history of all the transactions that has occured on the customer wallet account. Replace <code>{customer_id}</code> with the ID of the customer for which you would like to retreive the account history.
+<p>Use this endpoint to retrieve an history of all the transactions that has occurred on the customer wallet account. Replace <code>{customer_id}</code> with the ID of the customer for which you would like to retrieve the account history.
 Note that the response is a CRUD Type response, this means it&#39;s paginated.</p>
 
 <div class="endpoint">
@@ -1877,7 +1877,7 @@ Note that the response is a CRUD Type response, this means it&#39;s paginated.</
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='customer-group-39-s-customers'>Customer Group&#39;s Customers</h2>
-<p>Use this endpoint to list all cutomers that are assigned to a specific customer group. Replace <code>{group_id}</code> with the ID of the group for which you would like to retrieve the customers.</p>
+<p>Use this endpoint to list all customers that are assigned to a specific customer group. Replace <code>{group_id}</code> with the ID of the group for which you would like to retrieve the customers.</p>
 
 <div class="endpoint">
     <div>
@@ -1920,7 +1920,7 @@ Note that the response is a CRUD Type response, this means it&#39;s paginated.</
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">   
 </span></code></pre></div><h2 id='transfers-customers'>Transfers Customers</h2>
-<p>Use this endpoint to move customers from one group to another group. Where <code>from</code> is the source group id and <code>to</code> is the destination group id. You can specific the IDs (in an array) that are targeted with <code>ids</code> or use a wilcard &quot;*&quot; to transfers all customers.</p>
+<p>Use this endpoint to move customers from one group to another group. Where <code>from</code> is the source group id and <code>to</code> is the destination group id. You can specific the IDs (in an array) that are targeted with <code>ids</code> or use a wildcard &quot;*&quot; to transfers all customers.</p>
 
 <div class="endpoint">
     <div>
@@ -1951,10 +1951,10 @@ Note that the response is a CRUD Type response, this means it&#39;s paginated.</
 <p>For further instruction how how to interact with the Crud API, <a href="https://my.nexopos.com/en/documentation/crud-api/how-to-create-a-crud-component">refer to the documentation</a>.</p>
 
 <aside class="notice">
-On this part of the documentation, `{namespace}` refer the identifier of a CRUD instance. You'll then use the identifier of the CRUd you would like to retrieve entreis. For this documentation, we'll use the identifier `ns.products` which is for the `App\Crud\ProductCrud` component.
+On this part of the documentation, `{namespace}` refer the identifier of a CRUD instance. You'll then use the identifier of the CRUd you would like to retrieve entries. For this documentation, we'll use the identifier `ns.products` which is for the `App\Crud\ProductCrud` component.
 </aside>
 <h2 id='get-table-entries'>Get Table Entries</h2>
-<p>Use this endpoint to retreive the configuration of a table. By table we mean that UI component that is used to displays a list of entries.</p>
+<p>Use this endpoint to retrieve the configuration of a table. By table we mean that UI component that is used to display a list of entries.</p>
 
 <div class="endpoint">
     <div>
@@ -2174,7 +2174,7 @@ On this part of the documentation, `{namespace}` refer the identifier of a CRUD 
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='get-table-configuration'>Get Table Configuration</h2>
-<p>This will retreive the current table configuration of a crud component.</p>
+<p>This will retrieve the current table configuration of a crud component.</p>
 
 <div class="endpoint">
     <div>
@@ -2575,7 +2575,7 @@ The exported entries are not paginated. In case of a huge list of entries, you m
 <h1 id='fields'>Fields</h1>
 <p>The Fields endpoint give you access to a structure of defined fields. The way fields are defined varies from one instance of FieldsService class to another. Fields are defined on the directory <code>app/Fields</code>;</p>
 <h2 id='get-fields'>Get Fields</h2>
-<p>Use this endpoint to get the shape of a fields. You can optionnally provide an identifier that will be used by the FieldsService class. For example, this is used to retrieve the login, registration fields etc. We&#39;ll use the login fields as an example.</p>
+<p>Use this endpoint to get the shape of a fields. You can optionally provide an identifier that will be used by the FieldsService class. For example, this is used to retrieve the login, registration fields etc. We&#39;ll use the login fields as an example.</p>
 
 <div class="endpoint">
     <div>
@@ -2900,7 +2900,7 @@ The exported entries are not paginated. In case of a huge list of entries, you m
       </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Biling"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Billing"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
@@ -3305,7 +3305,7 @@ The exported entries are not paginated. In case of a huge list of entries, you m
   </span><span class="nl">"total_invalid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='enable-module'>Enable Module</h2>
-<p>This endpoint shoudl be used to enable a module using it&#39;s identifier. You&#39;ll replace <code>{identifier}</code> with the module&#39;s identifier you want to enable. </p>
+<p>This endpoint should be used to enable a module using it&#39;s identifier. You&#39;ll replace <code>{identifier}</code> with the module&#39;s identifier you want to enable. </p>
 
 <aside class="notice">
 Performing this will not execute the module migration if they are needed. By accessing NexoPOS, the migration will be performed.
@@ -3390,7 +3390,7 @@ Performing this will not execute the module migration if they are needed. By acc
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='disable-module'>Disable Module</h2>
-<p>This endpoint is used to disable a module using it&#39;s identifier. You&#39;ll replace <code>{identifier}</code> by the module&#39;s identifer you want to disable. </p>
+<p>This endpoint is used to disable a module using it&#39;s identifier. You&#39;ll replace <code>{identifier}</code> by the module&#39;s identifier you want to disable. </p>
 
 <aside class="notice">
 Note that this method can't be used as way around to disable a module in case you're not able to access the dashboard.
@@ -3630,7 +3630,7 @@ Note that this method can't be used as way around to disable a module in case yo
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>This endpoing will list all products available. However, it won&#39;t include any other related table (for the sake of performance).</p>
+<p>This endpoint will list all products available. However, it won&#39;t include any other related table (for the sake of performance).</p>
 <h2 id='create-product'>Create Product</h2>
 <div class="endpoint">
     <div>
@@ -3707,8 +3707,8 @@ Note that this method can't be used as way around to disable a module in case yo
         </span><span class="nl">"editUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[url]"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='retreive-product'>Retreive Product</h2>
-<p>This wil retreive a product using it&#39;s ID. You&#39;ll make sure to replace &quot;{product_id}&quot; with the actual product ID.</p>
+</span></code></pre></div><h2 id='retrieve-product'>Retrieve Product</h2>
+<p>This will retrieve a product using it&#39;s ID. You&#39;ll make sure to replace &quot;{product_id}&quot; with the actual product ID.</p>
 
 <div class="endpoint">
     <div>
@@ -3842,7 +3842,7 @@ Note that this method can't be used as way around to disable a module in case yo
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='get-product-history'>Get Product History</h2>
-<p>This endpoint will provide a full list of stock movement that has occured on a specific product. You&#39;ll replace <code>{product_id}</code> with the ID of the product for which you would like to get the history. Note that this is not paginated, for a product having a very long history, you might consider increasig the execution time or refer to the CRUD approach which is paginated.</p>
+<p>This endpoint will provide a full list of stock movement that has occurred on a specific product. You&#39;ll replace <code>{product_id}</code> with the ID of the product for which you would like to get the history. Note that this is not paginated, for a product having a very long history, you might consider increasing the execution time or refer to the CRUD approach which is paginated.</p>
 
 <div class="endpoint">
     <div>
@@ -3891,7 +3891,7 @@ Note that this method can't be used as way around to disable a module in case yo
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div><h2 id='get-product-variations'>Get Product Variations</h2>
-<p>While this feature is not yet fully used on NexoPOS as a single variation is enforced for now, you can use it in the future to retreive products variations.</p>
+<p>While this feature is not yet fully used on NexoPOS as a single variation is enforced for now, you can use it in the future to retrieve products variations.</p>
 
 <div class="endpoint">
     <div>
@@ -3944,7 +3944,7 @@ Note that this method can't be used as way around to disable a module in case yo
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='product-units'>Product Units</h2>
-<p>Used to retreive all units attached to a products.</p>
+<p>Used to retrieve all units attached to a products.</p>
 
 <div class="endpoint">
     <div>
@@ -4100,7 +4100,7 @@ Note that this method can't be used as way around to disable a module in case yo
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div><h2 id='product-unit-quantity'>Product Unit Quantity</h2>
-<p>You&#39;ll use this endpoint to retreive a single product unit quantity. You&#39;ll replace &quot;{product_id}&quot; and &quot;{unit_id}&quot; by their relevant values.</p>
+<p>You&#39;ll use this endpoint to retrieve a single product unit quantity. You&#39;ll replace &quot;{product_id}&quot; and &quot;{unit_id}&quot; by their relevant values.</p>
 
 <div class="endpoint">
     <div>
@@ -4146,7 +4146,7 @@ Note that this method can't be used as way around to disable a module in case yo
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-26T23:19:42.000000Z"</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='product-procurements'>Product Procurements</h2>
-<p>Use this endpoint to retreive all purchases that was made for a specific product.</p>
+<p>Use this endpoint to retrieve all purchases that was made for a specific product.</p>
 
 <div class="endpoint">
     <div>
@@ -4187,7 +4187,7 @@ Note that this method can't be used as way around to disable a module in case yo
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div><h2 id='product-barcode-search'>Product: Barcode Search</h2>
-<p>Use this to have perform a strict retreival of product having as barcode the provided term. This endpoint is used on the POS to get product using a Barcode reader. You&#39;ll replace &quot;{barcode}&quot; with the barcode you would like to use as search term.</p>
+<p>Use this to have perform a strict retrieval of product having as barcode the provided term. This endpoint is used on the POS to get product using a Barcode reader. You&#39;ll replace &quot;{barcode}&quot; with the barcode you would like to use as search term.</p>
 
 <div class="endpoint">
     <div>
@@ -4510,7 +4510,7 @@ Note that this method can't be used as way around to disable a module in case yo
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[text]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='delete-unit-quantity'>Delete Unit Quantity</h2>
-<p>Use this to delete a unit quantity attached to a product. This implies all the inventory assigned to that product using the selected unit, will also be deleted (and can&#39;t be retreived). You&#39;ll replace &quot;{unit_quantity_id}&quot; with the id you would like to delete.</p>
+<p>Use this to delete a unit quantity attached to a product. This implies all the inventory assigned to that product using the selected unit, will also be deleted (and can&#39;t be retrieved). You&#39;ll replace &quot;{unit_quantity_id}&quot; with the id you would like to delete.</p>
 
 <div class="endpoint">
     <div>
@@ -4644,7 +4644,7 @@ Note that this method can't be used as way around to disable a module in case yo
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div><h2 id='update-category'>Update Category</h2>
-<p>Use this endpoint to update an existing category using <code>{category_id}</code>, that needs to be replaced with the actual ID of the category you would like to udpate.</p>
+<p>Use this endpoint to update an existing category using <code>{category_id}</code>, that needs to be replaced with the actual ID of the category you would like to update.</p>
 
 <div class="endpoint">
     <div>
@@ -4705,7 +4705,7 @@ Note that this method can't be used as way around to disable a module in case yo
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[string]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='category-39-s-products'>Category&#39;s Products</h2>
-<p>Use this endpoint to retreive all the product that are assigned to a category. You&#39;ll replace <code>{category_id}</code> by the ID of the category you would like to get the products.</p>
+<p>Use this endpoint to retrieve all the product that are assigned to a category. You&#39;ll replace <code>{category_id}</code> by the ID of the category you would like to get the products.</p>
 
 <div class="endpoint">
     <div>
@@ -4748,7 +4748,7 @@ Note that this method can't be used as way around to disable a module in case yo
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div><h1 id='user'>User</h1>
-<p>The user endpoint give an overview of the logged user. With this you&#39;ll be able to retreive the logged user email, id and more (The password is encrypted).</p>
+<p>The user endpoint give an overview of the logged user. With this you&#39;ll be able to retrieve the logged user email, id and more (The password is encrypted).</p>
 
 <div class="endpoint">
     <div>
@@ -4785,7 +4785,7 @@ Note that this method can't be used as way around to disable a module in case yo
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-27T09:42:33.000000Z"</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='orders'>Orders</h1><h2 id='retrieve-orders'>Retrieve Orders</h2>
-<p>To retreive all orders, the endpoint will be used without the identifier of the order. The result will then be an Array of orders. When an identifier is provided, a single entry of the array will be provided if that exists.</p>
+<p>To retrieve all orders, the endpoint will be used without the identifier of the order. The result will then be an Array of orders. When an identifier is provided, a single entry of the array will be provided if that exists.</p>
 
 <div class="endpoint">
     <div>
@@ -4864,7 +4864,7 @@ Note that this method can't be used as way around to disable a module in case yo
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>This endpoing will list all products available. However, it won&#39;t include any other related table (for the sake of performance).</p>
+<p>This endpoint will list all products available. However, it won&#39;t include any other related table (for the sake of performance).</p>
 <h2 id='create-order'>Create Order</h2>
 <div class="endpoint">
     <div>
@@ -5245,7 +5245,7 @@ Note that this method can't be used as way around to disable a module in case yo
     </div>
 </div>
 
-<p>If the endpoint &quot;api/orders/{id}/{attribute?}&quot; allows to retrieve a specific order, this endpoint will retreive an order with all it&#39;s linked attributes. By default, NexoPOS assumes &quot;{id}&quot; is a number (&quot;id&quot;). However when providing &quot;{attribute}&quot;, you can change it to be the order code with &quot;code&quot;. </p>
+<p>If the endpoint &quot;api/orders/{id}/{attribute?}&quot; allows to retrieve a specific order, this endpoint will retrieve an order with all it&#39;s linked attributes. By default, NexoPOS assumes &quot;{id}&quot; is a number (&quot;id&quot;). However when providing &quot;{attribute}&quot;, you can change it to be the order code with &quot;code&quot;. </p>
 
 <blockquote>
 <p>Response</p>
@@ -5613,7 +5613,7 @@ Note that this method can't be used as way around to disable a module in case yo
 </div>
 
 <p>While submitting an order, depending on the current payment status, NexoPOS will determine the order type. If an order has a payment that covers the order total, the order
-will be marked as &quot;PAID&quot;, if it doesn&#39;t completely &quot;Paritally Paid&quot; (if settings allows it) if not paid it can either be &quot;Unpaid&quot; or &quot;Hold&quot;. The difference between a &quot;Hold&quot; order and an &quot;Unpaid&quot;, the first doesn&#39;t perform any change on the inventory, while the latest does.</p>
+will be marked as &quot;PAID&quot;, if it doesn&#39;t completely &quot;Partially Paid&quot; (if settings allows it) if not paid it can either be &quot;Unpaid&quot; or &quot;Hold&quot;. The difference between a &quot;Hold&quot; order and an &quot;Unpaid&quot;, the first doesn&#39;t perform any change on the inventory, while the latest does.</p>
 <h3 id='support-payment-status'>Support Payment Status</h3>
 <p>Here is the list of supported payment status.</p>
 
